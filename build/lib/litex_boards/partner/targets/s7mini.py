@@ -11,7 +11,7 @@ import argparse
 
 from migen import *
 
-from litex.boards.platforms import s7mini
+from litex_boards.partner.platforms import s7mini
 
 from litex.soc.cores.clock import *
 from litex.soc.integration.soc_core import *
@@ -37,13 +37,17 @@ class BaseSoC(SoCCore):
     def __init__(self, sys_clk_freq=int(100e6), **kwargs):
         platform = s7mini.Platform()
 
-        SoCCore.__init__(self, platform, sys_clk_freq, **kwargs)
+#        SoCCore.__init__(self, platform, sys_clk_freq, **kwargs)
 
+        SoCCore.__init__(self, platform, clk_freq=sys_clk_freq,
+            integrated_rom_size=0x8000,
+            integrated_main_ram_size=0x8000,
+            **kwargs)
 
 	# can we just use the clock without PLL ?
 
         self.submodules.crg = _CRG(platform, sys_clk_freq)
-        self.counted = counter = Signal(32)
+        self.counter = counter = Signal(32)
         self.sync += counter.eq(counter + 1)
  
 	#

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Aug  1 18:32:08 2019
+# Process ID: 19144
+# Current directory: X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_s7mini/gateware
+# Command line: vivado.exe -mode batch -source top.tcl
+# Log file: X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_s7mini/gateware/vivado.log
+# Journal file: X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_s7mini/gateware\vivado.jou
+#-----------------------------------------------------------
+source top.tcl

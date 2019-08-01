@@ -17,29 +17,30 @@ _io = [
 #Note we need special constraint for clock or it will fail
     ("clk100", 0, Pins("L5"), IOStandard("LVCMOS33")),
 #there is no dedicated reset? at least we need pull-down?
+#seems to work as is also
     ("cpu_reset", 0, Pins("A10"), IOStandard("LVCMOS33")),
-#fixme
+#
     ("serial", 0,
         Subsignal("tx", Pins("A5")),
         Subsignal("rx", Pins("A12")),
         IOStandard("LVCMOS33")
     ),
 
-    ("spiflash4x", 0,
-        Subsignal("cs_n", Pins("L13")),
-        Subsignal("clk", Pins("L16")),
-        Subsignal("dq", Pins("K17", "K18", "L14", "M14")),
-        IOStandard("LVCMOS33")
-    ),
-    ("spiflash", 0,
-        Subsignal("cs_n", Pins("L13")),
-        Subsignal("clk", Pins("L16")),
-        Subsignal("mosi", Pins("K17")),
-        Subsignal("miso", Pins("K18")),
-        Subsignal("wp", Pins("L14")),
-        Subsignal("hold", Pins("M14")),
-        IOStandard("LVCMOS33"),
-    ),
+#    ("spiflash4x", 0,
+#        Subsignal("cs_n", Pins("L13")),
+#        Subsignal("clk", Pins("L16")),
+#        Subsignal("dq", Pins("K17", "K18", "L14", "M14")),
+#        IOStandard("LVCMOS33")
+#    ),
+#    ("spiflash", 0,
+#        Subsignal("cs_n", Pins("L13")),
+#        Subsignal("clk", Pins("L16")),
+#        Subsignal("mosi", Pins("K17")),
+#        Subsignal("miso", Pins("K18")),
+#        Subsignal("wp", Pins("L14")),
+#        Subsignal("hold", Pins("M14")),
+#        IOStandard("LVCMOS33"),
+#    ),
 
 ]
 
@@ -67,6 +68,6 @@ class Platform(XilinxPlatform):
              "-loadbit \"up 0x0 {build_name}.bit\" -file {build_name}.bin"]
 # required as s7-mini has global clock on regular io pin
         self.add_platform_command("set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets clk100_IBUF]")
-
+#fixme change spi flash type
     def create_programmer(self):
         return VivadoProgrammer(flash_part="n25q128-3.3v-spi-x1_x2_x4")

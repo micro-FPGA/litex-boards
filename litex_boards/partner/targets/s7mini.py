@@ -47,7 +47,7 @@ class BaseSoC(SoCCore):
 	# can we just use the clock without PLL ?
 
         self.submodules.crg = _CRG(platform, sys_clk_freq)
-        self.counted = counter = Signal(32)
+        self.counter = counter = Signal(32)
         self.sync += counter.eq(counter + 1)
  
 	#
