@@ -20,7 +20,7 @@ _io = [
     ("cpu_reset", 0, Pins("A10"), IOStandard("LVCMOS33")),
 #fixme
     ("serial", 0,
-        Subsignal("tx", Pins("A13")),
+        Subsignal("tx", Pins("A5")),
         Subsignal("rx", Pins("A12")),
         IOStandard("LVCMOS33")
     ),
