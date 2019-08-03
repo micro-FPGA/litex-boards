@@ -10,8 +10,7 @@ from litex.build.altera.programmer import USBBlaster
 
 _io = [
     ("clk12", 0, Pins("H6"), IOStandard("3.3-V LVTTL")),    # 12MHz clock
-#C5
-    ("user_led", 0, Pins("C13"), IOStandard("3.3-V LVTTL")), # CONF Done, inverted polarity
+    ("user_led", 0, Pins("C5"), IOStandard("3.3-V LVTTL")), # CONF Done, inverted polarity
 
     ("sw", 0, Pins("E6"), IOStandard("3.3-V LVTTL")),
     ("sw", 1, Pins("E7"), IOStandard("3.3-V LVTTL")), # nConfig
@@ -70,6 +69,8 @@ class Platform(AlteraPlatform):
 
     def __init__(self):
         AlteraPlatform.__init__(self, "10M08SAU169C8G", _io)
+        self.add_platform_command("set_global_assignment -name FAMILY \"MAX 10\"")
+        self.add_platform_command("set_global_assignment -name ENABLE_CONFIGURATION_PINS OFF")
         self.add_platform_command("set_global_assignment -name INTERNAL_FLASH_UPDATE_MODE \"SINGLE IMAGE WITH ERAM\"")
 
     def create_programmer(self):

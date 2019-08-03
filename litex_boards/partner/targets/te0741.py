@@ -1,9 +1,6 @@
 #!/usr/bin/env python3
 
 # This file is Copyright (c) 2019 Antti Lukats <antti.lukats@gmail.com>
-# This is simple blink LED for Spartan-7 mini
-
-
 # This file is Copyright (c) 2015-2019 Florent Kermarrec <florent@enjoy-digital.fr>
 # License: BSD
 
