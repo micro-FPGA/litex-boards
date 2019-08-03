@@ -28,9 +28,9 @@ _io = [
         Subsignal("rx", Pins("A4"), IOStandard("3.3-V LVTTL"))
     ),
 
-    ("sdram_clock", 0, Pins("R4"), IOStandard("3.3-V LVTTL")),
+    ("sdram_clock", 0, Pins("L12"), IOStandard("3.3-V LVTTL")),
     ("sdram", 0,
-        Subsignal("a", Pins("P2 N5 N6 M8 P8 T7 N8 T6 R1 P1 N2 N1 L4")),
+        Subsignal("a", Pins("N5 N6 M8 P8 T7 N8 T6 R1 P1 N2 N1 L4")),
         Subsignal("ba", Pins("M7 M6")),
         Subsignal("cs_n", Pins("P6")),
         Subsignal("cke", Pins("L7")),
