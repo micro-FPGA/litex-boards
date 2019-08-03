@@ -10,12 +10,19 @@ from migen import *
 from litex_boards.partner.platforms import max1000
 
 from litex.soc.integration.soc_core import *
-#from litex.soc.integration.soc_sdram import *
+from litex.soc.integration.soc_sdram import *
 
 from litex.soc.integration.builder import *
 
-from litedram.modules import IS42S16320
+from litedram.modules import MT48LC4M16
 from litedram.phy import GENSDRPHY
+
+from litex.soc.cores import gpio
+
+
+class ClassicLed(gpio.GPIOOut):
+    def __init__(self, pads):
+        gpio.GPIOOut.__init__(self, pads)
 
 # CRG ----------------------------------------------------------------------------------------------
 class _CRG(Module):
@@ -80,8 +87,13 @@ class _CRG(Module):
 
 # BaseSoC ------------------------------------------------------------------------------------------
 
-#class BaseSoC(SoCSDRAM):
-class BaseSoC(SoCCore):
+class BaseSoC(SoCSDRAM):
+#class BaseSoC(SoCCore):
+    csr_peripherals = (
+        "leds",
+    )
+#    csr_map.update(SoCCore.csr_map, csr_peripherals)
+
     def __init__(self, sys_clk_freq=int(50e6), **kwargs):
         assert sys_clk_freq == int(50e6)
 
@@ -91,23 +103,34 @@ class BaseSoC(SoCCore):
 #                          integrated_rom_size=0x8000,
 #                          **kwargs)
 
-        SoCCore.__init__(self, platform, clk_freq=sys_clk_freq,
-            integrated_rom_size=0x4000,
-            integrated_main_ram_size=0x4000,
+
+#    csr_map_update(SoCSDRAM.csr_map, csr_peripherals)
+
+        SoCSDRAM.__init__(self, platform, clk_freq=sys_clk_freq,
+            integrated_rom_size=0x6000,
+#            integrated_main_ram_size=0x4000,
             **kwargs)
-
-
+ 
 
         self.submodules.crg = _CRG(platform)
+ 
+#        self.submodules.leds = ClassicLed(Cat(platform.request("user_led", i) for i in range(7)))
+        self.add_csr("leds", allow_user_defined=True)
+        self.submodules.leds = ClassicLed(platform.request("user_led", 0))
+
+#        self.add_csr("gpio_leds", allow_user_defined=True)
+        self.add_csr("gpio_leds", allow_user_defined=True)
+        self.submodules.gpio_leds = gpio.GPIOOut(platform.request("gpio_leds"))
+
 
 # use micron device as winbond and ISSI not available
 
-#        if not self.integrated_main_ram_size:
-#            self.submodules.sdrphy = GENSDRPHY(platform.request("sdram"))
-#            sdram_module = MT48LC4M16(self.clk_freq, "1:1")
-#            self.register_sdram(self.sdrphy,
-#                                sdram_module.geom_settings,
-#                                sdram_module.timing_settings)
+        if not self.integrated_main_ram_size:
+            self.submodules.sdrphy = GENSDRPHY(platform.request("sdram"))
+            sdram_module = MT48LC4M16(self.clk_freq, "1:1")
+            self.register_sdram(self.sdrphy,
+                                sdram_module.geom_settings,
+                                sdram_module.timing_settings)
 
 # Build --------------------------------------------------------------------------------------------
 
@@ -115,15 +138,15 @@ def main():
     parser = argparse.ArgumentParser(description="LiteX SoC on MAX1000")
     builder_args(parser)
 
-#    soc_sdram_args(parser)
-    soc_core_args(parser)
+    soc_sdram_args(parser)
+#    soc_core_args(parser)
 
     args = parser.parse_args()
 
-#    soc = BaseSoC(**soc_sdram_argdict(args))
+    soc = BaseSoC(**soc_sdram_argdict(args))
 
-    cls = BaseSoC
-    soc = cls(**soc_core_argdict(args))
+#    cls = BaseSoC
+#    soc = cls(**soc_core_argdict(args))
 
 
     builder = Builder(soc, **builder_argdict(args))

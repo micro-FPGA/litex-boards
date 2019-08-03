@@ -1,3 +1,4 @@
+# This file is Copyright (c) 2019 Antti Lukats <antti.lukats@gmail.com>
 # This file is Copyright (c) 2014-2019 Florent Kermarrec <florent@enjoy-digital.fr>
 # License: BSD
 
@@ -8,66 +9,57 @@ from litex.build.altera.programmer import USBBlaster
 # IOs ----------------------------------------------------------------------------------------------
 
 _io = [
-    ("clk12", 0, Pins("H6"), IOStandard("3.3-V LVTTL")),
+    ("clk12", 0, Pins("H6"), IOStandard("3.3-V LVTTL")),    # 12MHz clock
+#C5
+    ("user_led", 0, Pins("C13"), IOStandard("3.3-V LVTTL")), # CONF Done, inverted polarity
 
-    ("user_led", 0, Pins("A15"), IOStandard("3.3-V LVTTL")),
-    ("user_led", 1, Pins("A13"), IOStandard("3.3-V LVTTL")),
-    ("user_led", 2, Pins("B13"), IOStandard("3.3-V LVTTL")),
-    ("user_led", 3, Pins("A11"), IOStandard("3.3-V LVTTL")),
-    ("user_led", 4, Pins("D1"), IOStandard("3.3-V LVTTL")),
-    ("user_led", 5, Pins("F3"), IOStandard("3.3-V LVTTL")),
-    ("user_led", 6, Pins("B1"), IOStandard("3.3-V LVTTL")),
-    ("user_led", 7, Pins("L3"), IOStandard("3.3-V LVTTL")),
-
-
-    ("sw", 0, Pins("M1"), IOStandard("3.3-V LVTTL")),
-    ("sw", 1, Pins("T8"), IOStandard("3.3-V LVTTL")),
+    ("sw", 0, Pins("E6"), IOStandard("3.3-V LVTTL")),
+    ("sw", 1, Pins("E7"), IOStandard("3.3-V LVTTL")), # nConfig
 
     ("serial", 0,
         Subsignal("tx", Pins("B4"), IOStandard("3.3-V LVTTL")),
         Subsignal("rx", Pins("A4"), IOStandard("3.3-V LVTTL"))
     ),
 
-    ("sdram_clock", 0, Pins("L12"), IOStandard("3.3-V LVTTL")),
+    ("sdram_clock", 0, Pins("M9"), IOStandard("3.3-V LVTTL")),
     ("sdram", 0,
-        Subsignal("a", Pins("N5 N6 M8 P8 T7 N8 T6 R1 P1 N2 N1 L4")),
-        Subsignal("ba", Pins("M7 M6")),
-        Subsignal("cs_n", Pins("P6")),
-        Subsignal("cke", Pins("L7")),
-        Subsignal("ras_n", Pins("L2")),
-        Subsignal("cas_n", Pins("L1")),
-        Subsignal("we_n", Pins("C2")),
-        Subsignal("dq", Pins("G2 G1 L8 K5 K2 J2 J1 R7 T4 T2 T3 R3 R5 P3 N3 K1")),
-        Subsignal("dm", Pins("R6 T5")),
+        Subsignal("a", Pins("K6 M5 N5 J8 N10 M11 N9 L10 M13 N8 N4 M10")), #0, 1, ...
+        Subsignal("ba", Pins("N6 K8")),
+        Subsignal("cs_n", Pins("M4")),
+        Subsignal("cke", Pins("M8")),
+        Subsignal("ras_n", Pins("M7")),
+        Subsignal("cas_n", Pins("N7")),
+        Subsignal("we_n", Pins("K7")),
+        Subsignal("dq", Pins("D11 G10 F10 F9 E10 D9 G9 F8 F13 E12 E13 D12 C12 B12 B13 A12")),
+        Subsignal("dm", Pins("E9 F12")),
         IOStandard("3.3-V LVTTL")
     ),
 
-    ("epcs", 0,
-        Subsignal("data0", Pins("H2")),
-        Subsignal("dclk", Pins("H1")),
-        Subsignal("ncs0", Pins("D2")),
-        Subsignal("asd0", Pins("C1")),
+#    ("epcs", 0,
+#        Subsignal("data0", Pins("H2")),
+#        Subsignal("dclk", Pins("A3")),
+#        Subsignal("ncs0", Pins("B3")),
+#        Subsignal("asd0", Pins("C1")),
+#        IOStandard("3.3-V LVTTL")
+#    ),
+
+#    ("i2c", 0,
+#        Subsignal("sclk", Pins("F2")),
+#        Subsignal("sdat", Pins("F1")),
+#        IOStandard("3.3-V LVTTL")
+#    ),
+
+#    ("g_sensor", 0,
+#        Subsignal("cs_n", Pins("G5")),
+#        Subsignal("int", Pins("M2")),
+#        IOStandard("3.3-V LVTTL")
+#    ),
+
+    ("gpio_leds", 0,
+        Pins("D8 A8 A9 C9 A10 B10 A11 C10"),
         IOStandard("3.3-V LVTTL")
     ),
 
-    ("i2c", 0,
-        Subsignal("sclk", Pins("F2")),
-        Subsignal("sdat", Pins("F1")),
-        IOStandard("3.3-V LVTTL")
-    ),
-
-    ("g_sensor", 0,
-        Subsignal("cs_n", Pins("G5")),
-        Subsignal("int", Pins("M2")),
-        IOStandard("3.3-V LVTTL")
-    ),
-
-    ("gpio_0", 0,
-        Pins("D3 C3 A2 A3 B3 B4 A4 B5 A5 D5 B6 A6 B7 D6 A7 C6",
-            "C8 E6 E7 D8 E8 F8 F9 E9 C9 D9 E11 E10 C11 B11 A12 D11",
-            "D12 B12"),
-        IOStandard("3.3-V LVTTL")
-    ),
 ]
 
 # Platform -----------------------------------------------------------------------------------------
