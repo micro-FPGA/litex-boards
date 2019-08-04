@@ -8,25 +8,17 @@ from litex.build.xilinx import XilinxPlatform, VivadoProgrammer
 # IOs ----------------------------------------------------------------------------------------------
 
 _io = [
-    ("user_led", 0, Pins("D26"), IOStandard("LVCMOS33")),
-    ("user_led", 1, Pins("E26"), IOStandard("LVCMOS33")),
+    ("user_led", 0, Pins("R17"), IOStandard("LVCMOS33")), # LED4
+#    ("user_led", 1, Pins("E26"), IOStandard("LVCMOS33")),
 
-# must be set 1 always
-    ("clk_en", 0, Pins("C26"), IOStandard("LVCMOS33")),
-
-#
-
-    ("clk100", 0,
-        Subsignal("p", Pins("F22"), IOStandard("LVDS_25")),
-        Subsignal("n", Pins("E23"), IOStandard("LVDS_25"))
-    ),
-
-
-    ("cpu_reset", 0, Pins("L23"), IOStandard("LVCMOS33")),
+# P17
+    ("clk100", 0, Pins("P17"), IOStandard("LVCMOS33")),
+# LED
+    ("cpu_reset", 0, Pins("L15"), IOStandard("LVCMOS33")),
 #
     ("serial", 0,
-        Subsignal("tx", Pins("H21")),
-        Subsignal("rx", Pins("G21")),
+        Subsignal("tx", Pins("R10")),
+        Subsignal("rx", Pins("N17")),
         IOStandard("LVCMOS33")
     ),
 
@@ -60,10 +52,10 @@ class Platform(XilinxPlatform):
     default_clk_name = "clk100"
     default_clk_period = 10.0
 
-    def __init__(self, variant="k7-160-2c"):
+    def __init__(self, variant="a7-35-2c"):
         device = {
-            "k7-160-2c": "xc7k160tffg676-2",
-            "k7-325-2c": "xc7k325tfbg676-2"
+            "a7-35-2c": "xc7a35tcsg324-2",
+            "a7-35-2i": "xc7a35tcsg324-2"
         }[variant]
         XilinxPlatform.__init__(self, device, _io, _connectors, toolchain="vivado")
         self.add_platform_command("""

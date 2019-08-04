@@ -108,7 +108,7 @@ class BaseSoC(SoCSDRAM):
 #    csr_map_update(SoCSDRAM.csr_map, csr_peripherals)
 
         SoCSDRAM.__init__(self, platform, clk_freq=sys_clk_freq,
-            integrated_rom_size=0x6000,
+            integrated_rom_size=0x8000,
 #            integrated_main_ram_size=0x4000,
             **kwargs)
  

@@ -41,7 +41,8 @@ _io = [
         Subsignal("ras_n", Pins("V8")),
         Subsignal("cas_n", Pins("Y7")),
         Subsignal("we_n", Pins("W8")),
-        Subsignal("dq", Pins("AB16 Y17 AA16 AA19 AB18 AA20 AB19 AB20 Y13 Y15 AA13 AB15 AB13 AA15 AA14")),
+        #                     0    1    2    3    4    5    6    7    8    9    10   11   12   13   14   15
+        Subsignal("dq", Pins("AB16 Y17  AA16 AA19 AB18 AA20 AB19 AB20 Y13  Y15  AA13 AB15 AB13 AA15 AA14 AB14")),
         Subsignal("dm", Pins("Y14 W13")),
         IOStandard("3.3-V LVTTL")
     ),
