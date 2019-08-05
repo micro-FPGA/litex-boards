@@ -32,10 +32,9 @@ class _CRG(Module):
 # BaseSoC ------------------------------------------------------------------------------------------
 
 class BaseSoC(SoCCore):
+
     def __init__(self, sys_clk_freq=int(100e6), **kwargs):
         platform = te0711.Platform()
-
-#        SoCCore.__init__(self, platform, sys_clk_freq, **kwargs)
 
         SoCCore.__init__(self, platform, clk_freq=sys_clk_freq,
             integrated_rom_size=0x8000,

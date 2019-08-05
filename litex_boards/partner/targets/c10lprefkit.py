@@ -13,6 +13,9 @@ from litex_boards.partner.platforms import c10lprefkit
 from litex.soc.integration.soc_core import *
 from litex.soc.integration.soc_sdram import *
 
+from litex.soc.interconnect import wishbone
+#from litex.soc.integration.soc_core import mem_decoder
+
 from litex.soc.integration.builder import *
 
 from litedram.modules import MT48LC16M16
@@ -112,6 +115,9 @@ class BaseSoC(SoCSDRAM):
 #            integrated_main_ram_size=0x4000,
             **kwargs)
  
+        self.submodules.emulator_ram = wishbone.SRAM(0x4000)
+        self.register_mem("emulator_ram", self.mem_map["emulator_ram"], self.emulator_ram.bus, 0x4000)
+
 
         self.submodules.crg = _CRG(platform)
  
