@@ -24,9 +24,9 @@ from litedram.phy import GENSDRPHY
 from litex.soc.cores import gpio
 
 
-class ClassicLed(gpio.GPIOOut):
-    def __init__(self, pads):
-        gpio.GPIOOut.__init__(self, pads)
+#class ClassicLed(gpio.GPIOOut):
+#    def __init__(self, pads):
+#        gpio.GPIOOut.__init__(self, pads)
 
 # CRG ----------------------------------------------------------------------------------------------
 class _CRG(Module):
@@ -46,7 +46,7 @@ class _CRG(Module):
 
         # power on rst
         rst_n = Signal()
-        self.sync.por += rst_n.eq(1)
+        self.sync.por += rst_n.eq(platform.request("cpu_reset"))
         self.comb += [
             self.cd_por.clk.eq(clk12),
             self.cd_sys.rst.eq(~rst_n),
@@ -61,7 +61,6 @@ class _CRG(Module):
         #
         # PLL we need 2 clocks one system one for SDRAM phase shifter
         # 
-
         self.specials += \
             Instance("ALTPLL",
                 p_BANDWIDTH_TYPE="AUTO",
@@ -92,31 +91,18 @@ class _CRG(Module):
 # BaseSoC ------------------------------------------------------------------------------------------
 
 class BaseSoC(SoCSDRAM):
-#class BaseSoC(SoCCore):
-    csr_peripherals = (
-        "leds",
-    )
-#    csr_map.update(SoCCore.csr_map, csr_peripherals)
-
     def __init__(self, sys_clk_freq=int(50e6), **kwargs):
         assert sys_clk_freq == int(50e6)
 
         platform = c10lprefkit.Platform()
-
-#        SoCSDRAM.__init__(self, platform, clk_freq=sys_clk_freq,
-#                          integrated_rom_size=0x8000,
-#                          **kwargs)
-
-
-#    csr_map_update(SoCSDRAM.csr_map, csr_peripherals)
 
         SoCSDRAM.__init__(self, platform, clk_freq=sys_clk_freq,
             integrated_rom_size=0x8000,
 #            integrated_main_ram_size=0x4000,
             **kwargs)
  
-        self.submodules.emulator_ram = wishbone.SRAM(0x4000)
-        self.register_mem("emulator_ram", self.mem_map["emulator_ram"], self.emulator_ram.bus, 0x4000)
+#        self.submodules.emulator_ram = wishbone.SRAM(0x4000)
+#        self.register_mem("emulator_ram", self.mem_map["emulator_ram"], self.emulator_ram.bus, 0x4000)
 
 
         self.submodules.crg = _CRG(platform)
@@ -126,11 +112,17 @@ class BaseSoC(SoCSDRAM):
 #        self.submodules.leds = ClassicLed(platform.request("user_led", 0))
 
 #        self.add_csr("gpio_leds", allow_user_defined=True)
-        self.add_csr("gpio_leds", allow_user_defined=True)
-        self.submodules.gpio_leds = gpio.GPIOOut(platform.request("gpio_leds"))
 
+##        self.add_csr("gpio_leds", allow_user_defined=True)
+##        self.submodules.gpio_leds = gpio.GPIOOut(platform.request("gpio_leds"))
 
 # use micron device as winbond and ISSI not available
+
+        self.counter = counter = Signal(32)
+        self.sync += counter.eq(counter + 1)
+      
+        led_left = platform.request("user_led", 0)
+        self.comb += led_left.eq(counter[23])
 
         if not self.integrated_main_ram_size:
             self.submodules.sdrphy = GENSDRPHY(platform.request("sdram"))
@@ -151,10 +143,6 @@ def main():
     args = parser.parse_args()
 
     soc = BaseSoC(**soc_sdram_argdict(args))
-
-#    cls = BaseSoC
-#    soc = cls(**soc_core_argdict(args))
-
 
     builder = Builder(soc, **builder_argdict(args))
     builder.build()
