@@ -44,6 +44,9 @@ class _CRG(Module):
         # clock input always available
         clk12 = platform.request("clk12")
 
+        noreset = Signal()
+        self.comb += noreset.eq(0)
+
         # power on rst
         rst_n = Signal()
         self.sync.por += rst_n.eq(platform.request("cpu_reset"))
@@ -79,7 +82,7 @@ class _CRG(Module):
                 p_OPERATION_MODE = "NORMAL",
                 i_INCLK=clk12,
                 o_CLK=clk_outs, # we have total max 5 Cx clocks
-                i_ARESET=~rst_n,
+                i_ARESET = noreset, #~rst_n,
                 i_CLKENA=0x3f,
                 i_EXTCLKENA=0xf,
                 i_FBIN=1,
