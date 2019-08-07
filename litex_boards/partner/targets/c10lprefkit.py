@@ -21,6 +21,10 @@ from litex.soc.integration.builder import *
 from litedram.modules import MT48LC16M16
 from litedram.phy import GENSDRPHY
 
+from liteeth.phy.mii import LiteEthPHYMII
+from liteeth.mac import LiteEthMAC
+
+
 from litex.soc.cores import gpio
 
 
@@ -134,18 +138,48 @@ class BaseSoC(SoCSDRAM):
                                 sdram_module.geom_settings,
                                 sdram_module.timing_settings)
 
+
+class EthernetSoC(BaseSoC):
+    mem_map = {
+        "ethmac": 0x30000000,  # (shadow @0xb0000000)
+    }
+    mem_map.update(BaseSoC.mem_map)
+
+    def __init__(self, **kwargs):
+        BaseSoC.__init__(self, **kwargs)
+
+        self.submodules.ethphy = LiteEthPHYMII(self.platform.request("eth_clocks"),
+                                               self.platform.request("eth"))
+        self.add_csr("ethphy")
+        self.submodules.ethmac = LiteEthMAC(phy=self.ethphy, dw=32,
+            interface="wishbone", endianness=self.cpu.endianness)
+        self.add_wb_slave(self.mem_map["ethmac"], self.ethmac.bus, 0x2000)
+        self.add_memory_region("ethmac", self.mem_map["ethmac"] | self.shadow_base, 0x2000)
+        self.add_csr("ethmac")
+        self.add_interrupt("ethmac")
+
+        self.ethphy.crg.cd_eth_rx.clk.attr.add("keep")
+        self.ethphy.crg.cd_eth_tx.clk.attr.add("keep")
+        self.platform.add_period_constraint(self.ethphy.crg.cd_eth_rx.clk, 1e9/12.5e6)
+        self.platform.add_period_constraint(self.ethphy.crg.cd_eth_tx.clk, 1e9/12.5e6)
+        self.platform.add_false_path_constraints(
+            self.crg.cd_sys.clk,
+            self.ethphy.crg.cd_eth_rx.clk,
+            self.ethphy.crg.cd_eth_tx.clk)
+
+
 # Build --------------------------------------------------------------------------------------------
 
 def main():
     parser = argparse.ArgumentParser(description="LiteX SoC on C10 LP RefKit")
     builder_args(parser)
-
     soc_sdram_args(parser)
-#    soc_core_args(parser)
-
+    parser.add_argument("--with-ethernet", action="store_true",
+                        help="enable Ethernet support")
     args = parser.parse_args()
 
-    soc = BaseSoC(**soc_sdram_argdict(args))
+    cls = EthernetSoC if args.with_ethernet else BaseSoC
+    soc = cls(**soc_sdram_argdict(args))
 
     builder = Builder(soc, **builder_argdict(args))
     builder.build()

@@ -72,6 +72,30 @@ _io = [
 #            "D12 B12"),
 #        IOStandard("3.3-V LVTTL")
 #    ),
+
+    # 25MHz ?
+    ("eth_ref_clk", 0, Pins("AA12"), IOStandard("3.3-V LVTTL")),
+    #ETH 1
+    ("eth_clocks", 0,
+        Subsignal("tx", Pins("U21")),
+        Subsignal("rx", Pins("V22")),
+        IOStandard("3.3-V LVTTL"),
+    ),
+    ("eth", 0,
+        Subsignal("rst_n", Pins("R19")),
+        Subsignal("mdio", Pins("AA21")),
+        Subsignal("mdc", Pins("AA22")),
+        Subsignal("rx_dv", Pins("W21")),
+        Subsignal("rx_er", Pins("V21")),
+        Subsignal("rx_data", Pins("W22 W20 Y21 Y22")),
+        Subsignal("tx_en", Pins("T18")),
+        Subsignal("tx_data", Pins("T17 U20 U19 T20")),
+        Subsignal("col", Pins("T19")),
+        Subsignal("crs", Pins("R20")),
+        IOStandard("3.3-V LVTTL"),
+    ),
+
+
 ]
 
 # Platform -----------------------------------------------------------------------------------------
