@@ -47,6 +47,7 @@ class _CRG(Module):
 
         # clock input always available
         clk12 = platform.request("clk12")
+#        clk25 = platform.request("clk25")
 
         noreset = Signal()
         self.comb += noreset.eq(0)
@@ -56,6 +57,7 @@ class _CRG(Module):
         self.sync.por += rst_n.eq(platform.request("cpu_reset"))
         self.comb += [
             self.cd_por.clk.eq(clk12),
+#            self.cd_por.clk.eq(clk25),
             self.cd_sys.rst.eq(~rst_n),
             self.cd_sys_ps.rst.eq(~rst_n)
         ]
@@ -93,6 +95,36 @@ class _CRG(Module):
                 i_PFDENA=1,
                 i_PLLENA=1,
             )
+
+#        self.specials += \
+#            Instance("ALTPLL",
+#                p_BANDWIDTH_TYPE="AUTO",
+#                p_CLK0_DIVIDE_BY=1, #6,
+#                p_CLK0_DUTY_CYCLE=50,
+#                p_CLK0_MULTIPLY_BY=2, #25,
+#                p_CLK0_PHASE_SHIFT="0",
+#                p_CLK1_DIVIDE_BY=1, #6,
+#                p_CLK1_DUTY_CYCLE=50,
+#                p_CLK1_MULTIPLY_BY=2, #25, 
+#                p_CLK1_PHASE_SHIFT="-10000",
+#                p_COMPENSATE_CLOCK="CLK0",
+#                p_INCLK0_INPUT_FREQUENCY=40000, #83000,
+#                p_INTENDED_DEVICE_FAMILY="MAX 10",
+#                p_LPM_TYPE = "altpll",
+#                p_OPERATION_MODE = "NORMAL",
+#                i_INCLK=clk25, #clk12,
+#                o_CLK=clk_outs, # we have total max 5 Cx clocks
+#                i_ARESET = noreset, #~rst_n,
+#                i_CLKENA=0x3f,
+#                i_EXTCLKENA=0xf,
+#                i_FBIN=1,
+#                i_PFDENA=1,
+#                i_PLLENA=1,
+#            )
+
+
+
+
         self.comb += platform.request("sdram_clock").eq(self.cd_sys_ps.clk)
 
 # BaseSoC ------------------------------------------------------------------------------------------
@@ -148,8 +180,12 @@ class EthernetSoC(BaseSoC):
     def __init__(self, **kwargs):
         BaseSoC.__init__(self, **kwargs)
 
-        self.submodules.ethphy = LiteEthPHYMII(self.platform.request("eth_clocks"),
-                                               self.platform.request("eth"))
+        self.submodules.ethphy = LiteEthPHYMII(self.platform.request("eth1_clocks"),
+                                               self.platform.request("eth1"))
+
+#        self.submodules.ethphy = LiteEthPHYMII(self.platform.request("eth2_clocks"),
+#                                               self.platform.request("eth2"))
+
         self.add_csr("ethphy")
         self.submodules.ethmac = LiteEthMAC(phy=self.ethphy, dw=32,
             interface="wishbone", endianness=self.cpu.endianness)

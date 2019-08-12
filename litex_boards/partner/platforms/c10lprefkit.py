@@ -10,6 +10,7 @@ from litex.build.altera.programmer import USBBlaster
 
 _io = [
     ("clk12", 0, Pins("G21"), IOStandard("3.3-V LVTTL")),
+    ("clk25", 0, Pins("AA12"), IOStandard("3.3-V LVTTL")),
 
     ("user_led", 0, Pins("C18"), IOStandard("3.3-V LVTTL")),
 #    ("user_led", 1, Pins("A"), IOStandard("3.3-V LVTTL")),
@@ -75,13 +76,13 @@ _io = [
 
     # 25MHz ?
     ("eth_ref_clk", 0, Pins("AA12"), IOStandard("3.3-V LVTTL")),
-    #ETH 1
-    ("eth_clocks", 0,
+    #ETH 1 in the middle of the PCB
+    ("eth1_clocks", 0,
         Subsignal("tx", Pins("U21")),
         Subsignal("rx", Pins("V22")),
         IOStandard("3.3-V LVTTL"),
     ),
-    ("eth", 0,
+    ("eth1", 0,
         Subsignal("rst_n", Pins("R19")),
         Subsignal("mdio", Pins("AA21")),
         Subsignal("mdc", Pins("AA22")),
@@ -95,6 +96,25 @@ _io = [
         IOStandard("3.3-V LVTTL"),
     ),
 
+    #ETH 2 closer to power jack
+    ("eth2_clocks", 0,
+        Subsignal("tx", Pins("N16")),
+        Subsignal("rx", Pins("R17")),
+        IOStandard("3.3-V LVTTL"),
+    ),
+    ("eth2", 0,
+        Subsignal("rst_n", Pins("M21")),
+        Subsignal("mdio", Pins("N20")),
+        Subsignal("mdc", Pins("N18")),
+        Subsignal("rx_dv", Pins("R18")),
+        Subsignal("rx_er", Pins("P17")),
+        Subsignal("rx_data", Pins("M20 M19 M16 N19")),
+        Subsignal("tx_en", Pins("R22")),
+        Subsignal("tx_data", Pins("R21 N21 M22 N22")),
+        Subsignal("col", Pins("P21")),
+        Subsignal("crs", Pins("P22")),
+        IOStandard("3.3-V LVTTL"),
+    ),
 
 ]
 
@@ -103,6 +123,9 @@ _io = [
 class Platform(AlteraPlatform):
     default_clk_name = "clk12"
     default_clk_period = 83
+
+#    default_clk_name = "clk25"
+#    default_clk_period = 40
 
     def __init__(self):
         AlteraPlatform.__init__(self, "10CL055YU484A7G", _io)
