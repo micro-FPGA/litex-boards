@@ -196,12 +196,23 @@ class EthernetSoC(BaseSoC):
 
         self.ethphy.crg.cd_eth_rx.clk.attr.add("keep")
         self.ethphy.crg.cd_eth_tx.clk.attr.add("keep")
-        self.platform.add_period_constraint(self.ethphy.crg.cd_eth_rx.clk, 1e9/12.5e6)
-        self.platform.add_period_constraint(self.ethphy.crg.cd_eth_tx.clk, 1e9/12.5e6)
-        self.platform.add_false_path_constraints(
-            self.crg.cd_sys.clk,
-            self.ethphy.crg.cd_eth_rx.clk,
-            self.ethphy.crg.cd_eth_tx.clk)
+
+#        self.platform.add_period_constraint(self.ethphy.crg.cd_eth_rx.clk, 1e9/12.5e6)
+#        self.platform.add_period_constraint(self.ethphy.crg.cd_eth_tx.clk, 1e9/12.5e6)
+#        self.platform.add_false_path_constraints(
+#            self.crg.cd_sys.clk,
+#            self.ethphy.crg.cd_eth_rx.clk,
+#            self.ethphy.crg.cd_eth_tx.clk)
+
+
+        platform.add_period_constraint(platform.lookup_request("eth1_clocks").tx, 1e9/12.5e6)
+        platform.add_period_constraint(platform.lookup_request("eth1_clocks").rx, 1e9/12.5e6)
+        platform.add_false_path_constraints(
+            platform.lookup_request("clk12"),
+            platform.lookup_request("eth1_clocks").tx,
+            platform.lookup_request("eth1_clocks").rx
+        )
+
 
 
 # Build --------------------------------------------------------------------------------------------
