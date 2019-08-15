@@ -1,0 +1,1148 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Aug 15 13:44:11 2019
+# Process ID: 16248
+# Current directory: X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.runs/synth_1
+# Command line: vivado.exe -log top.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source top.tcl
+# Log file: X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.runs/synth_1/top.vds
+# Journal file: X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+Sourcing tcl script 'C:/Users/antti3/AppData/Roaming/Xilinx/Vivado/Vivado_init.tcl'
+INFO: [Common 17-1463] Init.tcl in C:/Users/antti3/AppData/Roaming/Xilinx/Vivado/init.tcl is not used. Vivado_init.tcl is already sourced.
+source top.tcl -notrace
+Command: synth_design -top top -part xc7a35tcsg324-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcsg324-2
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 1308 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 816.910 ; gain = 180.113
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'top' [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:4]
+INFO: [Synth 8-5534] Detected attribute (* dont_touch = "true" *) [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:267]
+INFO: [Synth 8-5534] Detected attribute (* dont_touch = "true" *) [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:492]
+INFO: [Synth 8-5534] Detected attribute (* async_reg = "true" *) [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:492]
+INFO: [Synth 8-5534] Detected attribute (* dont_touch = "true" *) [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:493]
+INFO: [Synth 8-5534] Detected attribute (* async_reg = "true" *) [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:493]
+INFO: [Synth 8-3876] $readmem data file 'mem.init' is read successfully [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1662]
+INFO: [Synth 8-3876] $readmem data file 'mem_1.init' is read successfully [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1682]
+INFO: [Synth 8-3876] $readmem data file 'mem_2.init' is read successfully [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1702]
+INFO: [Synth 8-3876] $readmem data file 'mem_3.init' is read successfully [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1748]
+INFO: [Synth 8-155] case statement is not full and has no default [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1346]
+INFO: [Synth 8-155] case statement is not full and has no default [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1392]
+INFO: [Synth 8-155] case statement is not full and has no default [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1414]
+INFO: [Synth 8-155] case statement is not full and has no default [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1504]
+INFO: [Synth 8-6157] synthesizing module 'BUFG' [X:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:1075]
+INFO: [Synth 8-6155] done synthesizing module 'BUFG' (1#1) [X:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:1075]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1759]
+INFO: [Synth 8-6157] synthesizing module 'STARTUPE2' [X:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:77870]
+	Parameter PROG_USR bound to: FALSE - type: string 
+	Parameter SIM_CCLK_FREQ bound to: 0.000000 - type: float 
+INFO: [Synth 8-6155] done synthesizing module 'STARTUPE2' (2#1) [X:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:77870]
+WARNING: [Synth 8-7023] instance 'STARTUPE2' of module 'STARTUPE2' has 13 connections declared, but only 9 given [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1759]
+INFO: [Synth 8-6157] synthesizing module 'VexRiscv' [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:1039]
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2220]
+INFO: [Synth 8-6157] synthesizing module 'InstructionCache' [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:46]
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:148]
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:149]
+WARNING: [Synth 8-6014] Unused sequential element decodeStage_mmuRsp_isIoAccess_reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:318]
+WARNING: [Synth 8-6014] Unused sequential element decodeStage_mmuRsp_allowRead_reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:319]
+WARNING: [Synth 8-6014] Unused sequential element decodeStage_mmuRsp_allowWrite_reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:320]
+INFO: [Synth 8-6155] done synthesizing module 'InstructionCache' (3#1) [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:46]
+INFO: [Synth 8-6157] synthesizing module 'DataCache' [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:335]
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:476]
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:477]
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:478]
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:479]
+INFO: [Synth 8-5534] Detected attribute (* ram_style = "block" *) [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:480]
+INFO: [Synth 8-251] ERROR writeBack stuck by another plugin is not allowed [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:986]
+WARNING: [Synth 8-6014] Unused sequential element tagsWriteLastCmd_valid_reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:938]
+WARNING: [Synth 8-6014] Unused sequential element tagsWriteLastCmd_payload_way_reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:939]
+WARNING: [Synth 8-6014] Unused sequential element tagsWriteLastCmd_payload_address_reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:940]
+WARNING: [Synth 8-6014] Unused sequential element tagsWriteLastCmd_payload_data_valid_reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:941]
+WARNING: [Synth 8-6014] Unused sequential element tagsWriteLastCmd_payload_data_error_reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:942]
+WARNING: [Synth 8-6014] Unused sequential element tagsWriteLastCmd_payload_data_address_reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:943]
+WARNING: [Synth 8-6014] Unused sequential element stageB_mmuRsp_allowExecute_reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:964]
+WARNING: [Synth 8-6014] Unused sequential element stageB_tagsReadRsp_0_valid_reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:969]
+WARNING: [Synth 8-6014] Unused sequential element stageB_tagsReadRsp_0_address_reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:971]
+INFO: [Synth 8-6155] done synthesizing module 'DataCache' (4#1) [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:335]
+WARNING: [Synth 8-6014] Unused sequential element IBusCachedPlugin_rspCounter_reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:5396]
+WARNING: [Synth 8-6014] Unused sequential element DBusCachedPlugin_rspCounter_reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:5400]
+WARNING: [Synth 8-6014] Unused sequential element CsrPlugin_lastStageWasWfi_reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:5417]
+WARNING: [Synth 8-6014] Unused sequential element _zz_134__reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:4146]
+WARNING: [Synth 8-6014] Unused sequential element _zz_141__reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:4154]
+WARNING: [Synth 8-6014] Unused sequential element decode_to_execute_FORMAL_PC_NEXT_reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3392]
+WARNING: [Synth 8-6014] Unused sequential element execute_to_memory_FORMAL_PC_NEXT_reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3391]
+WARNING: [Synth 8-6014] Unused sequential element memory_to_writeBack_FORMAL_PC_NEXT_reg was removed.  [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3390]
+INFO: [Synth 8-6155] done synthesizing module 'VexRiscv' (5#1) [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:1039]
+INFO: [Synth 8-6157] synthesizing module 'PLLE2_ADV' [X:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:61199]
+	Parameter BANDWIDTH bound to: OPTIMIZED - type: string 
+	Parameter CLKFBOUT_MULT bound to: 18 - type: integer 
+	Parameter CLKFBOUT_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKIN1_PERIOD bound to: 10.000000 - type: float 
+	Parameter CLKIN2_PERIOD bound to: 0.000000 - type: float 
+	Parameter CLKOUT0_DIVIDE bound to: 18 - type: integer 
+	Parameter CLKOUT0_DUTY_CYCLE bound to: 0.500000 - type: float 
+	Parameter CLKOUT0_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKOUT1_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT1_DUTY_CYCLE bound to: 0.500000 - type: float 
+	Parameter CLKOUT1_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKOUT2_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT2_DUTY_CYCLE bound to: 0.500000 - type: float 
+	Parameter CLKOUT2_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKOUT3_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT3_DUTY_CYCLE bound to: 0.500000 - type: float 
+	Parameter CLKOUT3_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKOUT4_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT4_DUTY_CYCLE bound to: 0.500000 - type: float 
+	Parameter CLKOUT4_PHASE bound to: 0.000000 - type: float 
+	Parameter CLKOUT5_DIVIDE bound to: 1 - type: integer 
+	Parameter CLKOUT5_DUTY_CYCLE bound to: 0.500000 - type: float 
+	Parameter CLKOUT5_PHASE bound to: 0.000000 - type: float 
+	Parameter COMPENSATION bound to: ZHOLD - type: string 
+	Parameter DIVCLK_DIVIDE bound to: 1 - type: integer 
+	Parameter IS_CLKINSEL_INVERTED bound to: 1'b0 
+	Parameter IS_PWRDWN_INVERTED bound to: 1'b0 
+	Parameter IS_RST_INVERTED bound to: 1'b0 
+	Parameter REF_JITTER1 bound to: 0.010000 - type: float 
+	Parameter REF_JITTER2 bound to: 0.010000 - type: float 
+	Parameter STARTUP_WAIT bound to: FALSE - type: string 
+INFO: [Synth 8-6155] done synthesizing module 'PLLE2_ADV' (6#1) [X:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:61199]
+WARNING: [Synth 8-7023] instance 'PLLE2_ADV' of module 'PLLE2_ADV' has 21 connections declared, but only 5 given [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1816]
+INFO: [Synth 8-6157] synthesizing module 'FDPE' [X:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:13604]
+	Parameter INIT bound to: 1'b1 
+	Parameter IS_C_INVERTED bound to: 1'b0 
+	Parameter IS_D_INVERTED bound to: 1'b0 
+	Parameter IS_PRE_INVERTED bound to: 1'b0 
+INFO: [Synth 8-6155] done synthesizing module 'FDPE' (7#1) [X:/Xilinx/Vivado/2019.1/scripts/rt/data/unisim_comp.v:13604]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1853]
+INFO: [Synth 8-6157] synthesizing module 'ila_0' [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.runs/synth_1/.Xil/Vivado-16248-W7-64-05/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ila_0' (8#1) [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.runs/synth_1/.Xil/Vivado-16248-W7-64-05/realtime/ila_0_stub.v:6]
+INFO: [Synth 8-6071] Mark debug on the nets applies keep_hierarchy on instance 'your_instance_name'. This will prevent further optimization [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1853]
+WARNING: [Synth 8-6014] Unused sequential element basesoc_ctrl_re_reg was removed.  [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1388]
+WARNING: [Synth 8-6014] Unused sequential element spiflash_bitbang_re_reg was removed.  [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1407]
+WARNING: [Synth 8-6014] Unused sequential element spiflash_bitbang_en_re_reg was removed.  [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1411]
+WARNING: [Synth 8-6014] Unused sequential element basesoc_timer0_load_re_reg was removed.  [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1480]
+WARNING: [Synth 8-6014] Unused sequential element basesoc_timer0_reload_re_reg was removed.  [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1493]
+WARNING: [Synth 8-6014] Unused sequential element basesoc_timer0_en_re_reg was removed.  [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1497]
+WARNING: [Synth 8-6014] Unused sequential element basesoc_timer0_eventmanager_re_reg was removed.  [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1501]
+WARNING: [Synth 8-6014] Unused sequential element basesoc_uart_eventmanager_re_reg was removed.  [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1528]
+WARNING: [Synth 8-6014] Unused sequential element basesoc_uart_phy_re_reg was removed.  [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1558]
+WARNING: [Synth 8-6014] Unused sequential element memdat_1_reg was removed.  [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1711]
+WARNING: [Synth 8-6014] Unused sequential element memdat_3_reg was removed.  [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1728]
+WARNING: [Synth 8-3936] Found unconnected internal register 'array_muxed0_reg' and it is trimmed from '30' to '29' bits. [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:688]
+INFO: [Synth 8-6155] done synthesizing module 'top' (9#1) [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:4]
+WARNING: [Synth 8-3917] design top has port hyperram_rstn driven by constant 1
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[31]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[30]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[29]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[28]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[27]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[26]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[25]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[24]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[23]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[22]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[21]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[20]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[19]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[18]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[17]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[16]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[15]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[14]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[13]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_execute_address[12]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_memory_mmuBus_rsp_allowExecute
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_memory_mmuBus_busy
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_isUser
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[31]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[30]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[29]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[28]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[27]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[26]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[25]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[24]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[23]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[22]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[21]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[20]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[19]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[18]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[17]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[16]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[15]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[14]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[13]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[12]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[11]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[10]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[9]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[8]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[7]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[6]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[5]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[4]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[3]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[2]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[1]
+WARNING: [Synth 8-3331] design DataCache has unconnected port io_cpu_writeBack_address[0]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_isValid
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[31]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[30]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[29]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[28]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[27]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[26]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[25]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[24]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[23]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[22]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[21]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[20]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[19]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[18]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[17]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[16]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[15]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[14]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[13]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[12]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[1]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_prefetch_pc[0]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_fetch_mmuBus_rsp_isIoAccess
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_fetch_mmuBus_rsp_allowRead
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_fetch_mmuBus_rsp_allowWrite
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_isValid
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_pc[31]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_pc[30]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_pc[29]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_pc[28]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_pc[27]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_pc[26]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_pc[25]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_pc[24]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_pc[23]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_pc[22]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_pc[21]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_pc[20]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_pc[19]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_pc[18]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_pc[17]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_pc[16]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_pc[15]
+WARNING: [Synth 8-3331] design InstructionCache has unconnected port io_cpu_decode_pc[14]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 889.254 ; gain = 252.457
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 907.121 ; gain = 270.324
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 907.121 ; gain = 270.324
+---------------------------------------------------------------------------------
+INFO: [Netlist 29-17] Analyzing 2 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [x:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.srcs/sources_1/ip/ila_0/ila_0/ila_0_in_context.xdc] for cell 'your_instance_name'
+Finished Parsing XDC File [x:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.srcs/sources_1/ip/ila_0/ila_0/ila_0_in_context.xdc] for cell 'your_instance_name'
+Parsing XDC File [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.xdc]
+Finished Parsing XDC File [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.runs/synth_1/dont_touch.xdc]
+INFO: [Timing 38-2] Deriving generated clocks
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1043.012 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.030 . Memory (MB): peak = 1043.012 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1043.012 ; gain = 406.215
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcsg324-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1043.012 ; gain = 406.215
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for your_instance_name. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1043.012 ; gain = 406.215
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:615]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:585]
+WARNING: [Synth 8-3936] Found unconnected internal register 'memdat_2_reg' and it is trimmed from '10' to '8' bits. [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1716]
+WARNING: [Synth 8-3936] Found unconnected internal register 'memdat_4_reg' and it is trimmed from '10' to '8' bits. [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1733]
+INFO: [Synth 8-5546] ROM "mem_3" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6841] Block RAM (mem_2_reg) originally specified as a Byte Wide Write Enable RAM cannot take advantage of ByteWide feature and is implemented with single write enable per RAM due to following reason.
+(address width (13) is more than optimal threshold of 12. Implementing using BWWE will require more logic and timing would be suboptimal. Please use attribute "ram_decomp = power" if BWWE is desired.)
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:19 . Memory (MB): peak = 1043.012 ; gain = 406.215
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     64 Bit       Adders := 3     
+	   3 Input     52 Bit       Adders := 1     
+	   2 Input     33 Bit       Adders := 3     
+	   3 Input     33 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 6     
+	   3 Input     32 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 3     
+	   2 Input      6 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 3     
+	   2 Input      4 Bit       Adders := 8     
+	   2 Input      3 Bit       Adders := 4     
+	   2 Input      2 Bit       Adders := 3     
+	   2 Input      1 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	               65 Bit    Registers := 1     
+	               64 Bit    Registers := 2     
+	               52 Bit    Registers := 1     
+	               48 Bit    Registers := 1     
+	               34 Bit    Registers := 1     
+	               33 Bit    Registers := 1     
+	               32 Bit    Registers := 50    
+	               30 Bit    Registers := 1     
+	               26 Bit    Registers := 1     
+	               22 Bit    Registers := 2     
+	               14 Bit    Registers := 1     
+	               13 Bit    Registers := 1     
+	               10 Bit    Registers := 1     
+	                8 Bit    Registers := 15    
+	                7 Bit    Registers := 2     
+	                6 Bit    Registers := 2     
+	                5 Bit    Registers := 3     
+	                4 Bit    Registers := 15    
+	                3 Bit    Registers := 6     
+	                2 Bit    Registers := 22    
+	                1 Bit    Registers := 134   
++---RAMs : 
+	             256K Bit         RAMs := 1     
+	              32K Bit         RAMs := 2     
+	               8K Bit         RAMs := 4     
+	               2K Bit         RAMs := 2     
+	             1024 Bit         RAMs := 1     
+	              160 Bit         RAMs := 2     
++---ROMs : 
+	                              ROMs := 1     
++---Muxes : 
+	   3 Input     64 Bit        Muxes := 3     
+	   3 Input     48 Bit        Muxes := 1     
+	   2 Input     48 Bit        Muxes := 2     
+	   2 Input     33 Bit        Muxes := 3     
+	   2 Input     32 Bit        Muxes := 88    
+	   4 Input     32 Bit        Muxes := 4     
+	  20 Input     32 Bit        Muxes := 1     
+	   3 Input     32 Bit        Muxes := 8     
+	   2 Input     31 Bit        Muxes := 1     
+	   2 Input     29 Bit        Muxes := 1     
+	   2 Input     25 Bit        Muxes := 1     
+	   2 Input     24 Bit        Muxes := 2     
+	   2 Input     10 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 5     
+	  28 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 7     
+	  23 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 11    
+	   4 Input      4 Bit        Muxes := 2     
+	   5 Input      4 Bit        Muxes := 1     
+	   7 Input      4 Bit        Muxes := 2     
+	   3 Input      3 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 2     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 10    
+	  23 Input      2 Bit        Muxes := 3     
+	   4 Input      2 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 189   
+	  23 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 4     
+	   3 Input      1 Bit        Muxes := 13    
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module top 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     33 Bit       Adders := 2     
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input      7 Bit       Adders := 2     
+	   2 Input      5 Bit       Adders := 2     
+	   2 Input      4 Bit       Adders := 8     
+	   2 Input      2 Bit       Adders := 3     
++---Registers : 
+	               48 Bit    Registers := 1     
+	               32 Bit    Registers := 11    
+	               14 Bit    Registers := 1     
+	               13 Bit    Registers := 1     
+	               10 Bit    Registers := 1     
+	                8 Bit    Registers := 10    
+	                7 Bit    Registers := 2     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 2     
+	                4 Bit    Registers := 8     
+	                2 Bit    Registers := 4     
+	                1 Bit    Registers := 39    
++---RAMs : 
+	             256K Bit         RAMs := 1     
+	              32K Bit         RAMs := 1     
+	              160 Bit         RAMs := 2     
++---ROMs : 
+	                              ROMs := 1     
++---Muxes : 
+	   3 Input     48 Bit        Muxes := 1     
+	   2 Input     48 Bit        Muxes := 2     
+	   2 Input     32 Bit        Muxes := 20    
+	   3 Input     32 Bit        Muxes := 1     
+	   2 Input     31 Bit        Muxes := 1     
+	   2 Input     29 Bit        Muxes := 1     
+	   2 Input     24 Bit        Muxes := 2     
+	   2 Input      8 Bit        Muxes := 5     
+	  28 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 3     
+	   4 Input      4 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 5     
+	   3 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 61    
+	   3 Input      1 Bit        Muxes := 11    
+	   4 Input      1 Bit        Muxes := 3     
+Module InstructionCache 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 4     
+	               22 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 10    
++---RAMs : 
+	              32K Bit         RAMs := 1     
+	               2K Bit         RAMs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 7     
+Module DataCache 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      7 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 4     
+	               22 Bit    Registers := 1     
+	                8 Bit    Registers := 4     
+	                4 Bit    Registers := 2     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 16    
++---RAMs : 
+	               8K Bit         RAMs := 4     
+	               2K Bit         RAMs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 5     
+	   2 Input     10 Bit        Muxes := 1     
+	   2 Input      7 Bit        Muxes := 4     
+	   2 Input      4 Bit        Muxes := 3     
+	   3 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 19    
+Module VexRiscv 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     64 Bit       Adders := 3     
+	   3 Input     52 Bit       Adders := 1     
+	   2 Input     33 Bit       Adders := 1     
+	   3 Input     33 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 5     
+	   3 Input     32 Bit       Adders := 1     
+	   2 Input      6 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 2     
+	   2 Input      1 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
+	   2 Input      1 Bit         XORs := 2     
++---Registers : 
+	               65 Bit    Registers := 1     
+	               64 Bit    Registers := 2     
+	               52 Bit    Registers := 1     
+	               34 Bit    Registers := 1     
+	               33 Bit    Registers := 1     
+	               32 Bit    Registers := 31    
+	               30 Bit    Registers := 1     
+	               26 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                4 Bit    Registers := 5     
+	                3 Bit    Registers := 4     
+	                2 Bit    Registers := 16    
+	                1 Bit    Registers := 69    
++---RAMs : 
+	             1024 Bit         RAMs := 1     
++---Muxes : 
+	   3 Input     64 Bit        Muxes := 3     
+	   2 Input     33 Bit        Muxes := 3     
+	   2 Input     32 Bit        Muxes := 62    
+	   4 Input     32 Bit        Muxes := 4     
+	  20 Input     32 Bit        Muxes := 1     
+	   3 Input     32 Bit        Muxes := 7     
+	   2 Input     25 Bit        Muxes := 1     
+	  23 Input      5 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 5     
+	   4 Input      4 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 1     
+	   7 Input      4 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 2     
+	   3 Input      3 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 5     
+	  23 Input      2 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 102   
+	  23 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-4471] merging register 'decode_to_execute_IS_RS1_SIGNED_reg' into 'decode_to_execute_IS_RS2_SIGNED_reg' [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3404]
+WARNING: [Synth 8-3936] Found unconnected internal register 'memory_to_writeBack_MUL_HH_reg' and it is trimmed from '34' to '32' bits. [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3409]
+DSP Report: Generating DSP memory_to_writeBack_MUL_HH_reg, operation Mode is: (A*B)'.
+DSP Report: register memory_to_writeBack_MUL_HH_reg is absorbed into DSP memory_to_writeBack_MUL_HH_reg.
+DSP Report: register execute_to_memory_MUL_HH_reg is absorbed into DSP memory_to_writeBack_MUL_HH_reg.
+DSP Report: operator _zz_28_ is absorbed into DSP memory_to_writeBack_MUL_HH_reg.
+DSP Report: Generating DSP execute_to_memory_MUL_LH_reg, operation Mode is: (A*B)'.
+DSP Report: register execute_to_memory_MUL_LH_reg is absorbed into DSP execute_to_memory_MUL_LH_reg.
+DSP Report: operator _zz_30_ is absorbed into DSP execute_to_memory_MUL_LH_reg.
+DSP Report: Generating DSP execute_to_memory_MUL_HL_reg, operation Mode is: (A*B)'.
+DSP Report: register execute_to_memory_MUL_HL_reg is absorbed into DSP execute_to_memory_MUL_HL_reg.
+DSP Report: operator _zz_29_ is absorbed into DSP execute_to_memory_MUL_HL_reg.
+DSP Report: Generating DSP execute_to_memory_MUL_LL_reg, operation Mode is: (A*B)'.
+DSP Report: register execute_to_memory_MUL_LL_reg is absorbed into DSP execute_to_memory_MUL_LL_reg.
+DSP Report: operator _zz_31_ is absorbed into DSP execute_to_memory_MUL_LL_reg.
+WARNING: [Synth 8-3917] design top has port hyperram_rstn driven by constant 1
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM ways_0_datas_reg to conserve power
+INFO: [Synth 8-3971] The signal "VexRiscv/RegFilePlugin_regFile_reg" was recognized as a true dual port RAM template.
+RAM Pipeline Warning: Read Address Register Found For RAM mem_1_reg. We will not be able to pipeline it. This may degrade performance. 
+RAM Pipeline Warning: Read Address Register Found For RAM mem_1_reg. We will not be able to pipeline it. This may degrade performance. 
+RAM Pipeline Warning: Read Address Register Found For RAM mem_2_reg. We will not be able to pipeline it. This may degrade performance. 
+RAM Pipeline Warning: Read Address Register Found For RAM mem_2_reg. We will not be able to pipeline it. This may degrade performance. 
+WARNING: [Synth 8-6841] Block RAM (mem_2_reg) originally specified as a Byte Wide Write Enable RAM cannot take advantage of ByteWide feature and is implemented with single write enable per RAM due to following reason.
+(address width (13) is more than optimal threshold of 12. Implementing using BWWE will require more logic and timing would be suboptimal. Please use attribute "ram_decomp = power" if BWWE is desired.)
+RAM Pipeline Warning: Read Address Register Found For RAM mem_1_reg. We will not be able to pipeline it. This may degrade performance. 
+RAM Pipeline Warning: Read Address Register Found For RAM mem_2_reg. We will not be able to pipeline it. This may degrade performance. 
+INFO: [Synth 8-3886] merging instance 'csrbankarray_interface1_bank_bus_dat_r_reg[4]' (FDR) to 'csrbankarray_interface1_bank_bus_dat_r_reg[7]'
+INFO: [Synth 8-3886] merging instance 'csrbankarray_interface1_bank_bus_dat_r_reg[5]' (FDR) to 'csrbankarray_interface1_bank_bus_dat_r_reg[7]'
+INFO: [Synth 8-3886] merging instance 'csrbankarray_interface1_bank_bus_dat_r_reg[6]' (FDR) to 'csrbankarray_interface1_bank_bus_dat_r_reg[7]'
+INFO: [Synth 8-3886] merging instance 'csrbankarray_interface1_bank_bus_dat_r_reg[7]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[8]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/decode_to_execute_INSTRUCTION_reg[5]' (FDE) to 'VexRiscv/decode_to_execute_MEMORY_WR_reg'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\execute_to_memory_BRANCH_CALC_reg[0] )
+INFO: [Synth 8-3886] merging instance 'VexRiscv/IBusCachedPlugin_fetchPc_pcReg_reg[0]' (FDE) to 'VexRiscv/IBusCachedPlugin_fetchPc_pcReg_reg[1]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[8]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[9]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[9]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[10]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[10]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[11]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[11]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[12]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[12]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[13]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[13]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[14]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[14]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[15]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[15]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[16]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[16]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[17]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[17]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[18]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[18]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[19]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[19]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[20]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[20]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[21]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[21]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[22]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[22]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[23]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[23]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[24]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[24]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[25]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[25]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[26]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[26]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[27]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[27]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[28]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[28]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[29]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[29]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[30]'
+INFO: [Synth 8-3886] merging instance 'basesoc_bus_wishbone_dat_r_reg[30]' (FDR) to 'basesoc_bus_wishbone_dat_r_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\basesoc_bus_wishbone_dat_r_reg[31] )
+INFO: [Synth 8-3886] merging instance 'VexRiscv/CsrPlugin_interrupt_code_reg[1]' (FDSE) to 'VexRiscv/CsrPlugin_interrupt_code_reg[0]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (VexRiscv/\CsrPlugin_interrupt_code_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\IBusCachedPlugin_fetchPc_pcReg_reg[1] )
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[0]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[0]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/_zz_115__reg[0]' (FDE) to 'VexRiscv/_zz_115__reg[1]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[1]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[1]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[2]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[2]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[3]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[3]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[4]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[4]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[5]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[5]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[6]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[6]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[8]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[8]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[9]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[9]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[10]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[10]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[11]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[11]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[12]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[12]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[13]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[13]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[14]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[14]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[16]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[16]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[17]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[17]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[18]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[18]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[19]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[19]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[20]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[20]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[21]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[21]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[22]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[22]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[24]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[24]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[25]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[25]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[26]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[26]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[27]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[27]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[28]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[28]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[29]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[29]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[30]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[30]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[15]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[15]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[23]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[23]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[31]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[31]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dBusWishbone_DAT_MISO_regNext_reg[7]' (FD) to 'VexRiscv/iBusWishbone_DAT_MISO_regNext_reg[7]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/CsrPlugin_interrupt_targetPrivilege_reg[0]' (FDSE) to 'VexRiscv/CsrPlugin_interrupt_targetPrivilege_reg[1]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (VexRiscv/\CsrPlugin_interrupt_targetPrivilege_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[4] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[5] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[6] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[7] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[8] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[9] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[10] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[14] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[12] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[13] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[11] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[3] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[2] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[15] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[16] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[17] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[18] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[19] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[20] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[21] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[22] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[23] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[24] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[25] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[26] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[27] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[28] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[29] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[30] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/dataCache_1_/loader_error_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\externalInterruptArray_regNext_reg[31] )
+INFO: [Synth 8-3886] merging instance 'VexRiscv/decode_to_execute_ALU_BITWISE_CTRL_reg[1]' (FDE) to 'VexRiscv/decode_to_execute_INSTRUCTION_reg[12]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/IBusCachedPlugin_cache/lineLoader_hadError_reg)
+INFO: [Synth 8-3886] merging instance 'VexRiscv/decode_to_execute_PC_reg[0]' (FDE) to 'VexRiscv/decode_to_execute_PC_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/CsrPlugin_mip_MTIP_reg)
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (VexRiscv/dataCache_1_/\loader_waysAllocator_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/IBusCachedPlugin_s1_tightlyCoupledHit_reg)
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dataCache_1_/stageB_mmuRsp_refilling_reg' (FDE) to 'VexRiscv/dataCache_1_/stageB_mmuRsp_exception_reg'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/dataCache_1_/stageB_mmuRsp_exception_reg)
+INFO: [Synth 8-3886] merging instance 'VexRiscv/dataCache_1_/stageB_mmuRsp_allowRead_reg' (FDE) to 'VexRiscv/dataCache_1_/stageB_mmuRsp_allowWrite_reg'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (VexRiscv/dataCache_1_/stageB_mmuRsp_allowWrite_reg)
+INFO: [Synth 8-3886] merging instance 'VexRiscv/_zz_133__reg[1]' (FDE) to 'VexRiscv/_zz_133__reg[0]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/_zz_133__reg[0]' (FDE) to 'VexRiscv/_zz_133__reg[2]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_exception_reg' (FDE) to 'VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_refilling_reg'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_allowExecute_reg)
+INFO: [Synth 8-3886] merging instance 'VexRiscv/IBusCachedPlugin_s2_tightlyCoupledHit_reg' (FDE) to 'VexRiscv/_zz_115__reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_refilling_reg)
+INFO: [Synth 8-3886] merging instance 'VexRiscv/execute_to_memory_INSTRUCTION_reg[5]' (FDE) to 'VexRiscv/execute_to_memory_MEMORY_WR_reg'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/execute_to_memory_PC_reg[1]' (FDE) to 'VexRiscv/execute_to_memory_PC_reg[0]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/memory_to_writeBack_PC_reg[1]' (FDE) to 'VexRiscv/memory_to_writeBack_PC_reg[0]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\_zz_115__reg[1] )
+INFO: [Synth 8-3886] merging instance 'VexRiscv/_zz_140__reg[1]' (FDE) to 'VexRiscv/_zz_140__reg[0]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/_zz_140__reg[0]' (FDE) to 'VexRiscv/_zz_140__reg[2]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\decode_to_execute_PC_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\execute_to_memory_PC_reg[0] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (VexRiscv/\memory_to_writeBack_PC_reg[0] )
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:45 ; elapsed = 00:00:45 . Memory (MB): peak = 1081.801 ; gain = 445.004
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++------------+------------+---------------+----------------+
+|Module Name | RTL Object | Depth x Width | Implemented As | 
++------------+------------+---------------+----------------+
+|top         | memdat_reg | 4096x32       | Block RAM      | 
++------------+------------+---------------+----------------+
+
+
+Block RAM: Preliminary Mapping  Report (see note below)
++------------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name       | RTL Object              | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|InstructionCache: | ways_0_datas_reg        | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|InstructionCache: | ways_0_tags_reg         | 128 x 22(READ_FIRST)   | W |   | 128 x 22(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|DataCache:        | ways_0_tags_reg         | 128 x 22(READ_FIRST)   | W |   | 128 x 22(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|DataCache:        | ways_0_data_symbol0_reg | 1 K x 8(READ_FIRST)    | W |   | 1 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|DataCache:        | ways_0_data_symbol1_reg | 1 K x 8(READ_FIRST)    | W |   | 1 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|DataCache:        | ways_0_data_symbol2_reg | 1 K x 8(READ_FIRST)    | W |   | 1 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|DataCache:        | ways_0_data_symbol3_reg | 1 K x 8(READ_FIRST)    | W |   | 1 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top               | mem_1_reg               | 1 K x 32(WRITE_FIRST)  | W | R |                        |   |   | Port A           | 0      | 1      | 
+|top               | mem_2_reg               | 8 K x 32(WRITE_FIRST)  | W | R |                        |   |   | Port A           | 0      | 8      | 
++------------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The table above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+
+Distributed RAM: Preliminary Mapping  Report (see note below)
++------------+---------------+-----------+----------------------+--------------+
+|Module Name | RTL Object    | Inference | Size (Depth x Width) | Primitives   | 
++------------+---------------+-----------+----------------------+--------------+
+|top         | storage_reg   | Implied   | 16 x 8               | RAM32M x 2   | 
+|top         | storage_1_reg | Implied   | 16 x 8               | RAM32M x 2   | 
++------------+---------------+-----------+----------------------+--------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping  Report (see note below)
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|VexRiscv    | (A*B)'      | 17     | 17     | -      | -      | 34     | 0    | 0    | -    | -    | -     | 1    | 1    | 
+|VexRiscv    | (A*B)'      | 17     | 17     | -      | -      | 34     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|VexRiscv    | (A*B)'      | 17     | 17     | -      | -      | 34     | 0    | 0    | -    | -    | -     | 1    | 0    | 
+|VexRiscv    | (A*B)'      | 16     | 16     | -      | -      | 32     | 0    | 0    | -    | -    | -     | 1    | 0    | 
++------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6837] The timing for the instance VexRiscv/IBusCachedPlugin_cache/i_7/ways_0_datas_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance VexRiscv/IBusCachedPlugin_cache/i_13/ways_0_tags_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance VexRiscv/dataCache_1_/i_16/ways_0_tags_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance VexRiscv/i_0/RegFilePlugin_regFile_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance VexRiscv/i_0/RegFilePlugin_regFile_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_73/mem_1_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_76/mem_2_reg_0_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_76/mem_2_reg_0_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_76/mem_2_reg_1_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_76/mem_2_reg_1_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_76/mem_2_reg_2_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_76/mem_2_reg_2_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_76/mem_2_reg_3_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_76/mem_2_reg_3_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_80/memdat_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_80/memdat_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_80/memdat_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance i_80/memdat_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:00 ; elapsed = 00:01:00 . Memory (MB): peak = 1081.801 ; gain = 445.004
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:14 ; elapsed = 00:01:15 . Memory (MB): peak = 1334.160 ; gain = 697.363
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping  Report
++------------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name       | RTL Object              | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|InstructionCache: | ways_0_datas_reg        | 1 K x 32(READ_FIRST)   | W |   | 1 K x 32(WRITE_FIRST)  |   | R | Port A and B     | 0      | 1      | 
+|InstructionCache: | ways_0_tags_reg         | 128 x 22(READ_FIRST)   | W |   | 128 x 22(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|DataCache:        | ways_0_tags_reg         | 128 x 22(READ_FIRST)   | W |   | 128 x 22(WRITE_FIRST)  |   | R | Port A and B     | 1      | 0      | 
+|DataCache:        | ways_0_data_symbol0_reg | 1 K x 8(READ_FIRST)    | W |   | 1 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|DataCache:        | ways_0_data_symbol1_reg | 1 K x 8(READ_FIRST)    | W |   | 1 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|DataCache:        | ways_0_data_symbol2_reg | 1 K x 8(READ_FIRST)    | W |   | 1 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|DataCache:        | ways_0_data_symbol3_reg | 1 K x 8(READ_FIRST)    | W |   | 1 K x 8(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
+|top               | mem_1_reg               | 1 K x 32(WRITE_FIRST)  | W | R |                        |   |   | Port A           | 0      | 1      | 
+|top               | mem_2_reg               | 8 K x 32(WRITE_FIRST)  | W | R |                        |   |   | Port A           | 0      | 8      | 
++------------------+-------------------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+
+Distributed RAM: Final Mapping  Report
++------------+---------------+-----------+----------------------+--------------+
+|Module Name | RTL Object    | Inference | Size (Depth x Width) | Primitives   | 
++------------+---------------+-----------+----------------------+--------------+
+|top         | storage_reg   | Implied   | 16 x 8               | RAM32M x 2   | 
+|top         | storage_1_reg | Implied   | 16 x 8               | RAM32M x 2   | 
++------------+---------------+-----------+----------------------+--------------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3886] merging instance 'basesoc_uart_rx_fifo_consume_reg_rep[3]' (FDRE) to 'basesoc_uart_rx_fifo_consume_reg[3]'
+INFO: [Synth 8-3886] merging instance 'basesoc_uart_rx_fifo_consume_reg_rep[2]' (FDRE) to 'basesoc_uart_rx_fifo_consume_reg[2]'
+INFO: [Synth 8-3886] merging instance 'basesoc_uart_rx_fifo_consume_reg_rep[0]' (FDRE) to 'basesoc_uart_rx_fifo_consume_reg[0]'
+INFO: [Synth 8-3886] merging instance 'basesoc_uart_rx_fifo_consume_reg_rep[1]' (FDRE) to 'basesoc_uart_rx_fifo_consume_reg[1]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/execute_to_memory_MEMORY_WR_reg' (FDE) to 'VexRiscv/dataCache_1_/stageA_request_wr_reg'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/memory_to_writeBack_MEMORY_WR_reg' (FDE) to 'VexRiscv/dataCache_1_/stageB_request_wr_reg'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/execute_to_memory_INSTRUCTION_reg[12]' (FDE) to 'VexRiscv/dataCache_1_/stageA_request_size_reg[0]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/execute_to_memory_INSTRUCTION_reg[13]' (FDE) to 'VexRiscv/dataCache_1_/stageA_request_size_reg[1]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/_zz_115__reg[16]' (FDE) to 'VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_physicalAddress_reg[16]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/_zz_115__reg[17]' (FDE) to 'VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_physicalAddress_reg[17]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/_zz_115__reg[18]' (FDE) to 'VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_physicalAddress_reg[18]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/_zz_115__reg[19]' (FDE) to 'VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_physicalAddress_reg[19]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_physicalAddress_reg[31]' (FDE) to 'VexRiscv/_zz_115__reg[31]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_physicalAddress_reg[6]' (FDE) to 'VexRiscv/_zz_115__reg[6]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_physicalAddress_reg[7]' (FDE) to 'VexRiscv/_zz_115__reg[7]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_physicalAddress_reg[8]' (FDE) to 'VexRiscv/_zz_115__reg[8]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_physicalAddress_reg[9]' (FDE) to 'VexRiscv/_zz_115__reg[9]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_physicalAddress_reg[10]' (FDE) to 'VexRiscv/_zz_115__reg[10]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/_zz_115__reg[24]' (FDE) to 'VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_physicalAddress_reg[24]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/_zz_115__reg[25]' (FDE) to 'VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_physicalAddress_reg[25]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/_zz_115__reg[26]' (FDE) to 'VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_physicalAddress_reg[26]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/_zz_115__reg[27]' (FDE) to 'VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_physicalAddress_reg[27]'
+INFO: [Synth 8-3886] merging instance 'VexRiscv/_zz_115__reg[12]' (FDE) to 'VexRiscv/IBusCachedPlugin_cache/decodeStage_mmuRsp_physicalAddress_reg[12]'
+INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-6837] The timing for the instance VexRiscv/IBusCachedPlugin_cache/ways_0_datas_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance VexRiscv/IBusCachedPlugin_cache/ways_0_tags_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance VexRiscv/dataCache_1_/ways_0_tags_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance VexRiscv/RegFilePlugin_regFile_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance VexRiscv/RegFilePlugin_regFile_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance mem_1_reg (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance mem_2_reg_0_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance mem_2_reg_0_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance mem_2_reg_1_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance mem_2_reg_1_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance mem_2_reg_2_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance mem_2_reg_2_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance mem_2_reg_3_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance mem_2_reg_3_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance memdat_reg_0 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance memdat_reg_1 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance memdat_reg_2 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+INFO: [Synth 8-6837] The timing for the instance memdat_reg_3 (implemented as a Block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:17 ; elapsed = 00:01:18 . Memory (MB): peak = 1343.184 ; gain = 706.387
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3942]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3941]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3940]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3939]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:5723]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2231]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:5402]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:673]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:673]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:673]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:673]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:673]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:673]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:673]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:673]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:673]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:673]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:673]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:673]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:673]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:673]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:673]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:3927]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:5755]
+WARNING: [Synth 8-5396] Clock pin CLKARDCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1656]
+WARNING: [Synth 8-5396] Clock pin CLKARDCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1656]
+WARNING: [Synth 8-5396] Clock pin CLKARDCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1656]
+WARNING: [Synth 8-5396] Clock pin CLKARDCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1656]
+WARNING: [Synth 8-5396] Clock pin WCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1710]
+WARNING: [Synth 8-5396] Clock pin WCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1710]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1716]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1716]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1716]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1716]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1716]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1716]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1716]
+WARNING: [Synth 8-5396] Clock pin C has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1716]
+WARNING: [Synth 8-5396] Clock pin CLKARDCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.v:1673]
+WARNING: [Synth 8-5396] Clock pin CLKBWRCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2532]
+WARNING: [Synth 8-5396] Clock pin CLKARDCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2532]
+WARNING: [Synth 8-5396] Clock pin CLKBWRCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2532]
+WARNING: [Synth 8-5396] Clock pin CLKARDCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:2532]
+WARNING: [Synth 8-5396] Clock pin CLKARDCLK has keep related attribute (keep/mark_debug/dont_touch) which could create extra logic on its net [C:/Python37/lib/site-packages/litex-0.2.dev0-py3.7.egg/litex/soc/cores/cpu/vexriscv/verilog/VexRiscv_Full.v:522]
+INFO: [Common 17-14] Message 'Synth 8-5396' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:20 ; elapsed = 00:01:21 . Memory (MB): peak = 1343.184 ; gain = 706.387
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:20 ; elapsed = 00:01:21 . Memory (MB): peak = 1343.184 ; gain = 706.387
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:21 ; elapsed = 00:01:22 . Memory (MB): peak = 1343.184 ; gain = 706.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:21 ; elapsed = 00:01:22 . Memory (MB): peak = 1343.184 ; gain = 706.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:21 ; elapsed = 00:01:22 . Memory (MB): peak = 1343.184 ; gain = 706.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:21 ; elapsed = 00:01:22 . Memory (MB): peak = 1343.184 ; gain = 706.387
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |ila_0         |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+-----------+------+
+|      |Cell       |Count |
++------+-----------+------+
+|1     |ila_0      |     1|
+|2     |BUFG       |     1|
+|3     |CARRY4     |   169|
+|4     |DSP48E1    |     1|
+|5     |DSP48E1_2  |     3|
+|6     |LUT1       |    83|
+|7     |LUT2       |   400|
+|8     |LUT3       |   533|
+|9     |LUT4       |   447|
+|10    |LUT5       |   539|
+|11    |LUT6       |  1131|
+|12    |PLLE2_ADV  |     1|
+|13    |RAM32M     |     4|
+|14    |RAMB18E1   |     4|
+|15    |RAMB18E1_2 |     4|
+|16    |RAMB36E1   |     1|
+|17    |RAMB36E1_1 |     1|
+|18    |RAMB36E1_2 |     8|
+|19    |RAMB36E1_3 |     1|
+|20    |RAMB36E1_4 |     1|
+|21    |RAMB36E1_5 |     1|
+|22    |RAMB36E1_6 |     1|
+|23    |STARTUPE2  |     1|
+|24    |FDPE       |     2|
+|25    |FDRE       |  1988|
+|26    |FDSE       |    75|
+|27    |IBUF       |     3|
+|28    |IOBUF      |    13|
+|29    |OBUF       |     7|
++------+-----------+------+
+
+Report Instance Areas: 
++------+---------------------------+-----------------+------+
+|      |Instance                   |Module           |Cells |
++------+---------------------------+-----------------+------+
+|1     |top                        |                 |  5423|
+|2     |  VexRiscv                 |VexRiscv         |  4229|
+|3     |    IBusCachedPlugin_cache |InstructionCache |   771|
+|4     |    dataCache_1_           |DataCache        |   875|
++------+---------------------------+-----------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:21 ; elapsed = 00:01:22 . Memory (MB): peak = 1343.184 ; gain = 706.387
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 2227 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:10 ; elapsed = 00:01:18 . Memory (MB): peak = 1343.184 ; gain = 570.496
+Synthesis Optimization Complete : Time (s): cpu = 00:01:21 ; elapsed = 00:01:22 . Memory (MB): peak = 1343.184 ; gain = 706.387
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 214 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1343.184 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 17 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 13 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 4 instances
+
+INFO: [Common 17-83] Releasing license: Synthesis
+249 Infos, 243 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:29 ; elapsed = 00:01:30 . Memory (MB): peak = 1343.184 ; gain = 941.328
+INFO: [Common 17-600] The following parameters have non-default value.
+tcl.collectionResultDisplayLimit
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1343.184 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'X:/GIT/litex-boards/litex_boards/partner/targets/soc_basesoc_te0725/gateware/top.runs/synth_1/top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file top_utilization_synth.rpt -pb top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Thu Aug 15 13:45:50 2019...

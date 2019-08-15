@@ -28,9 +28,9 @@ _io = [
 
     ("hyperram", 0,
         Subsignal("clk", Pins("N1")),
-        Subsignal("rstn", Pins("P3")),
+        Subsignal("rst_n", Pins("P3")),
         Subsignal("dq", Pins("P11 P12 N4 P10 P5 N10 N11 P13")),
-        Subsignal("cs0", Pins("P2")),
+        Subsignal("cs0_n", Pins("P2")),
         Subsignal("rwds", Pins("P4")),
         IOStandard("LVCMOS33")
     ),

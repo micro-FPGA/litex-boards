@@ -55,6 +55,16 @@ _io = [
         IOStandard("3.3-V LVTTL")
     ),
 
+    ("hyperram", 0,
+        Subsignal("clk", Pins("T16")),
+        Subsignal("rst_n", Pins("U12")),
+        Subsignal("dq", Pins("T15 W17 U14 R15 R14 V16 U16 U17")),
+        Subsignal("cs0_n", Pins("V13")),
+        Subsignal("rwds", Pins("U13")),
+        IOStandard("3.3-V LVTTL")
+    ),
+
+
 #    ("i2c", 0,
 #        Subsignal("sclk", Pins("F2")),
 #        Subsignal("sdat", Pins("F1")),

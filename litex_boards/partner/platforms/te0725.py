@@ -25,9 +25,10 @@ _io = [
     ("hyperram", 0,
         Subsignal("clk", Pins("A13")),
         Subsignal("clk_n", Pins("A14")),
-        Subsignal("rstn", Pins("J17")),
+        Subsignal("rstn_n", Pins("J17")),
         Subsignal("dq", Pins("E17 B17 F18 F16 G17 D18 B18 A16")),
-        Subsignal("cs0", Pins("D17")),
+        Subsignal("cs0_n", Pins("D17")),
+        Subsignal("cs1_n", Pins("A18")), # second CS for MCP
         Subsignal("rwds", Pins("E18")),
         IOStandard("LVCMOS18")
     ),
