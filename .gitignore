@@ -1,3 +1,21 @@
 # Ignore Python temporary files
 *.pyc
 __pycache__
+build
+dist
+gateware
+*.o
+*.d
+*.a
+*.bat
+*.elf
+*.ltx
+*.pb
+*.rpt
+*.rpx
+*.jou
+*.log
+*.vdi
+*.bit
+*.sof
+*.dcp

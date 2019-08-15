@@ -20,8 +20,8 @@ class HyperMemporyCommon(Module):
     def __init__(self, pads):
         self.pads = pads
 
-class HyperRAM(HyperMemporyCommon, AutoCSR):
-    def __init__(self, pads, endianness="big"):
+class HyperRAM(HyperMemporyCommon):
+    def __init__(self, pads):
         """
         HyperRAM simple core for LiteX
         This core should always just work on any FPGA platorm it is fully vendor neutral
@@ -30,8 +30,10 @@ class HyperRAM(HyperMemporyCommon, AutoCSR):
         """
         HyperMemporyCommon.__init__(self, pads)
 
-        if hasattr(pads, "rstn"):
-            self.comb += pads.rstn.eq(1)
+        if hasattr(pads, "rst_n"):
+            self.comb += pads.rst_n.eq(1)
+        if hasattr(pads, "cs1_n"):
+            self.comb += pads.cs1_n.eq(1)
 
         # Tristate pads
         dq = TSTriple(8)
@@ -52,7 +54,7 @@ class HyperRAM(HyperMemporyCommon, AutoCSR):
             dq.oe.eq(dq_oe),
             dq.o.eq(sr[-8:]),
             rwds.oe.eq(rwds_oe),
-            pads.cs0.eq(cs_int)
+            pads.cs0_n.eq(cs_int)
         ]	
 
         # we generate complementaty clk out for emulated differential output        

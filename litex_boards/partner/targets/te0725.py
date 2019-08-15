@@ -38,17 +38,16 @@ class _CRG(Module):
 # BaseSoC ------------------------------------------------------------------------------------------
 
 class BaseSoC(SoCCore):
-#    csr_peripherals = (
+#    csr_map = (
 #        "spiflash",
 #    )
-#    csr_map.update(SoCCore.csr_map, csr_peripherals)
+#    csr_map.update(SoCCore.csr_map, csr_map)
 
     mem_map = {
-        "spiflash": 0x40000000,
-        "hyperram": 0x20000000,
+        "spiflash": 0x20000000,
+        "hyperram": 0x40000000,
     }
     mem_map.update(SoCCore.mem_map)
-
 
 
     def __init__(self, sys_clk_freq=int(100e6), spiflash="spiflash_4x", **kwargs):
@@ -58,7 +57,7 @@ class BaseSoC(SoCCore):
         SoCCore.__init__(self, platform, clk_freq=sys_clk_freq,
             ident="TE0725", ident_version=True,
             integrated_rom_size=0x8000,
-            integrated_main_ram_size=0x8000,
+#            integrated_main_ram_size=0x8000,
             **kwargs)
 
 	# can we just use the clock without PLL ?
@@ -81,27 +80,22 @@ class BaseSoC(SoCCore):
 
         self.spiflash.add_clk_primitive("xc7");	
 
-        #32 Mbyte spansion flash, note there is no pullup on D2
+        #32 Mbyte spansion flash, note there is no pullup on D2, but spi flah ic has internal one?
         self.add_constant("SPIFLASH_PAGE_SIZE", 256)
         self.add_constant("SPIFLASH_SECTOR_SIZE", 0x10000)
 
+        # spi_flah.py supports max 16MB linear space
         self.add_wb_slave(mem_decoder(self.mem_map["spiflash"]), self.spiflash.bus)
         self.add_memory_region(
-            "spiflash", self.mem_map["spiflash"] | self.shadow_base, 32*1024*1024)
-
-
+            "spiflash", self.mem_map["spiflash"] | self.shadow_base, 16*1024*1024)
 
         hyperram_pads = platform.request("hyperram")
         self.submodules.hyperram = HyperRAM(
-                hyperram_pads,
-#                dummy=4,
-#                div=4,
-                endianness=self.cpu.endianness)
+                hyperram_pads)
 
         self.add_wb_slave(mem_decoder(self.mem_map["hyperram"]), self.hyperram.bus)
         self.add_memory_region(
             "hyperram", self.mem_map["hyperram"] | self.shadow_base, 8*1024*1024)
-
 
 
         self.counter = counter = Signal(32)

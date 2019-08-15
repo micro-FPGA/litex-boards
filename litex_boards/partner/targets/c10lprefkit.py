@@ -156,8 +156,7 @@ class BaseSoC(SoCSDRAM):
 
         hyperram_pads = platform.request("hyperram")
         self.submodules.hyperram = HyperRAM(
-                hyperram_pads,
-                endianness=self.cpu.endianness)
+                hyperram_pads)
 
         self.add_wb_slave(mem_decoder(self.mem_map["hyperram"]), self.hyperram.bus)
         self.add_memory_region(
