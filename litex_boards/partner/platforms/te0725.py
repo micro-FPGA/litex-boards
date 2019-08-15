@@ -22,6 +22,16 @@ _io = [
         IOStandard("LVCMOS33")
     ),
 
+    ("hyperram", 0,
+        Subsignal("clk", Pins("A13")),
+        Subsignal("clk_n", Pins("A14")),
+        Subsignal("rstn", Pins("J17")),
+        Subsignal("dq", Pins("E17 B17 F18 F16 G17 D18 B18 A16")),
+        Subsignal("cs0", Pins("D17")),
+        Subsignal("rwds", Pins("E18")),
+        IOStandard("LVCMOS18")
+    ),
+
     ("spiflash_4x", 0,  # clock needs to be accessed through STARTUPE2
         Subsignal("cs_n", Pins("L13")),
         Subsignal("dq", Pins("K17", "K18", "L14", "M14")),
@@ -65,8 +75,6 @@ set_property CONFIG_VOLTAGE 3.3 [current_design]
         self.toolchain.additional_commands = \
             ["write_cfgmem -force -format bin -interface spix4 -size 16 "
              "-loadbit \"up 0x0 {build_name}.bit\" -file {build_name}.bin"]
-# required as s7-mini has global clock on regular io pin
-#        self.add_platform_command("set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets clk100_IBUF]")
 #fixme change spi flash type
     def create_programmer(self):
         return VivadoProgrammer(flash_part="n25q128-3.3v-spi-x1_x2_x4")

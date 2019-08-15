@@ -10,9 +10,13 @@ from migen import *
 
 from litex_boards.partner.platforms import s7mini
 
+from litex.soc.interconnect import wishbone
+
 from litex.soc.cores.clock import *
 from litex.soc.integration.soc_core import *
 from litex.soc.integration.builder import *
+
+from hyper_memory import *
 
 # CRG ----------------------------------------------------------------------------------------------
 
@@ -31,10 +35,13 @@ class _CRG(Module):
 # BaseSoC ------------------------------------------------------------------------------------------
 
 class BaseSoC(SoCCore):
+    mem_map = {
+        "hyperram": 0x20000000,
+    }
+    mem_map.update(SoCCore.mem_map)
+
     def __init__(self, sys_clk_freq=int(100e6), **kwargs):
         platform = s7mini.Platform()
-
-#        SoCCore.__init__(self, platform, sys_clk_freq, **kwargs)
 
         SoCCore.__init__(self, platform, clk_freq=sys_clk_freq,
             integrated_rom_size=0x8000,
@@ -44,6 +51,23 @@ class BaseSoC(SoCCore):
 	# can we just use the clock without PLL ?
 
         self.submodules.crg = _CRG(platform, sys_clk_freq)
+
+
+#        self.add_csr("hyperram", allow_user_defined=True)
+
+        hyperram_pads = platform.request("hyperram")
+        self.submodules.hyperram = HyperRAM(
+                hyperram_pads,
+                dummy=4,
+                div=4,
+                endianness=self.cpu.endianness)
+
+        self.add_wb_slave(mem_decoder(self.mem_map["hyperram"]), self.hyperram.bus)
+        self.add_memory_region(
+            "hyperram", self.mem_map["hyperram"] | self.shadow_base, 8*1024*1024)
+
+
+
         self.counter = counter = Signal(32)
         self.sync += counter.eq(counter + 1)
  
@@ -53,6 +77,17 @@ class BaseSoC(SoCCore):
 
         led_green = platform.request("user_led_green")
         self.comb += led_green.eq(counter[25])
+
+        self.platform.add_source("ila.xci")
+        probe0 = Signal(6)
+#        self.comb += probe0.eq(Cat(spi_pads.clk, spi_pads.cs_n, spi_pads.wp, spi_pads.hold, spi_pads.miso, spi_pads.mosi))
+        self.specials += [
+            Instance("test/ila_0", i_clk=self.crg.cd_sys.clk, i_probe0=probe0),
+            ]
+        self.platform.toolchain.additional_commands +=  [
+            "write_debug_probes -force {build_name}.ltx",
+        ]
+
 
 
 # Build --------------------------------------------------------------------------------------------

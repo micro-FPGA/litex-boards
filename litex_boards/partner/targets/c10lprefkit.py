@@ -24,9 +24,9 @@ from litedram.phy import GENSDRPHY
 from liteeth.phy.mii import LiteEthPHYMII
 from liteeth.mac import LiteEthMAC
 
-
 from litex.soc.cores import gpio
 
+from hyper_memory import *
 
 #class ClassicLed(gpio.GPIOOut):
 #    def __init__(self, pads):
@@ -130,6 +130,12 @@ class _CRG(Module):
 # BaseSoC ------------------------------------------------------------------------------------------
 
 class BaseSoC(SoCSDRAM):
+    mem_map = {
+        "hyperram": 0x20000000,
+    }
+    mem_map.update(SoCCore.mem_map)
+
+
     def __init__(self, sys_clk_freq=int(50e6), **kwargs):
         assert sys_clk_freq == int(50e6)
 
@@ -145,6 +151,19 @@ class BaseSoC(SoCSDRAM):
 
 
         self.submodules.crg = _CRG(platform)
+
+        self.add_csr("hyperram", allow_user_defined=True)
+
+        hyperram_pads = platform.request("hyperram")
+        self.submodules.hyperram = HyperRAM(
+                hyperram_pads,
+                endianness=self.cpu.endianness)
+
+        self.add_wb_slave(mem_decoder(self.mem_map["hyperram"]), self.hyperram.bus)
+        self.add_memory_region(
+            "hyperram", self.mem_map["hyperram"] | self.shadow_base, 8*1024*1024)
+
+
  
 #        self.submodules.leds = ClassicLed(Cat(platform.request("user_led", i) for i in range(7)))
 #        self.add_csr("leds", allow_user_defined=True)
@@ -169,6 +188,8 @@ class BaseSoC(SoCSDRAM):
             self.register_sdram(self.sdrphy,
                                 sdram_module.geom_settings,
                                 sdram_module.timing_settings)
+
+        self.platform.add_source("ila.qsys")
 
 
 class EthernetSoC(BaseSoC):
@@ -205,14 +226,25 @@ class EthernetSoC(BaseSoC):
 #            self.ethphy.crg.cd_eth_tx.clk)
 
 
-        platform.add_period_constraint(platform.lookup_request("eth1_clocks").tx, 1e9/12.5e6)
-        platform.add_period_constraint(platform.lookup_request("eth1_clocks").rx, 1e9/12.5e6)
-        platform.add_false_path_constraints(
-            platform.lookup_request("clk12"),
-            platform.lookup_request("eth1_clocks").tx,
-            platform.lookup_request("eth1_clocks").rx
+        self.platform.add_period_constraint(self.platform.lookup_request("eth1_clocks").tx, 1e9/12.5e6)
+        self.platform.add_period_constraint(self.platform.lookup_request("eth1_clocks").rx, 1e9/12.5e6)
+        self.platform.add_false_path_constraints(
+            self.platform.lookup_request("clk12"),
+            self.platform.lookup_request("eth1_clocks").tx,
+            self.platform.lookup_request("eth1_clocks").rx
         )
 
+
+        # ila
+#        self.platform.add_source("ila.qsys")
+#        probe0 = Signal(6)
+#        self.comb += probe0.eq(Cat(spi_pads.clk, spi_pads.cs_n, spi_pads.wp, spi_pads.hold, spi_pads.miso, spi_pads.mosi))
+#        self.specials += [
+#            Instance("ila_0", i_clk=self.crg.cd_sys.clk, i_probe0=probe0),
+#            ]
+#        platform.toolchain.additional_commands +=  [
+#            "write_debug_probes -force {build_name}.ltx",
+#        ]
 
 
 # Build --------------------------------------------------------------------------------------------

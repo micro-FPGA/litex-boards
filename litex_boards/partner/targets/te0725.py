@@ -10,11 +10,15 @@ from migen import *
 
 from litex_boards.partner.platforms import te0725
 
+from litex.soc.interconnect import wishbone
+
 from litex.soc.cores.clock import *
 from litex.soc.integration.soc_core import *
 from litex.soc.integration.builder import *
 
 from litex.soc.cores.spi_flash import SpiFlash
+
+from hyper_memory import *
 
 # CRG ----------------------------------------------------------------------------------------------
 
@@ -40,9 +44,12 @@ class BaseSoC(SoCCore):
 #    csr_map.update(SoCCore.csr_map, csr_peripherals)
 
     mem_map = {
-        "spiflash": 0x20000000,
+        "spiflash": 0x40000000,
+        "hyperram": 0x20000000,
     }
     mem_map.update(SoCCore.mem_map)
+
+
 
     def __init__(self, sys_clk_freq=int(100e6), spiflash="spiflash_4x", **kwargs):
 
@@ -83,6 +90,20 @@ class BaseSoC(SoCCore):
             "spiflash", self.mem_map["spiflash"] | self.shadow_base, 32*1024*1024)
 
 
+
+        hyperram_pads = platform.request("hyperram")
+        self.submodules.hyperram = HyperRAM(
+                hyperram_pads,
+#                dummy=4,
+#                div=4,
+                endianness=self.cpu.endianness)
+
+        self.add_wb_slave(mem_decoder(self.mem_map["hyperram"]), self.hyperram.bus)
+        self.add_memory_region(
+            "hyperram", self.mem_map["hyperram"] | self.shadow_base, 8*1024*1024)
+
+
+
         self.counter = counter = Signal(32)
         self.sync += counter.eq(counter + 1)
  
@@ -92,6 +113,20 @@ class BaseSoC(SoCCore):
 
 #        led_green = platform.request("user_led_green")
 #        self.comb += led_green.eq(counter[25])
+
+
+# ila
+##        platform.add_source("ila_0/ila_0.xci")
+##        probe0 = Signal(40)
+#        self.comb += probe0.eq(Cat(spi_pads.clk, spi_pads.cs_n, spi_pads.wp, spi_pads.hold, spi_pads.miso, spi_pads.mosi))
+
+##        self.comb += probe0.eq(Cat(counter))
+##        self.specials += [
+##            Instance("ila_0", i_clk=self.crg.cd_sys.clk, i_probe0=probe0),
+##            ]
+#        platform.toolchain.additional_commands +=  [
+#            "write_debug_probes -force {build_name}.ltx",
+#        ]
 
 
 # Build --------------------------------------------------------------------------------------------

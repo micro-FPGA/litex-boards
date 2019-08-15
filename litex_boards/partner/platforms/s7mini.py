@@ -26,6 +26,16 @@ _io = [
         IOStandard("LVCMOS33")
     ),
 
+    ("hyperram", 0,
+        Subsignal("clk", Pins("N1")),
+        Subsignal("rstn", Pins("P3")),
+        Subsignal("dq", Pins("P11 P12 N4 P10 P5 N10 N11 P13")),
+        Subsignal("cs0", Pins("P2")),
+        Subsignal("rwds", Pins("P4")),
+        IOStandard("LVCMOS33")
+    ),
+
+
 #    ("spiflash4x", 0,
 #        Subsignal("cs_n", Pins("L13")),
 #        Subsignal("clk", Pins("L16")),
