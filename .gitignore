@@ -4,6 +4,7 @@ __pycache__
 build
 dist
 gateware
+litex_boards.egg-info
 *.o
 *.d
 *.a
@@ -17,5 +18,10 @@ gateware
 *.log
 *.vdi
 *.bit
+*.bin
 *.sof
 *.dcp
+*.c
+*.h
+*.ld
+*.mak
