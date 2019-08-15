@@ -104,7 +104,7 @@ class HyperRAM(HyperMemporyCommon, AutoCSR):
             (3,        []),
             (12,       [cs_int.eq(0), dq_oe.eq(1), sr.eq(CA)]), # 6 clock edges for command transmit
             (44,       [dq_oe.eq(0)]),                          # 6+6 latency default
-            (2,        [dq_oe.eq(self.bus.we), rwds_oe.eq(self.bus.we), rwds.o.eq(~bus.sel[0]), sr.eq(Cat(self.bus.dat_w, z))]), # 4 edges to write data
+            (2,        [dq_oe.eq(self.bus.we), rwds_oe.eq(self.bus.we), rwds.o.eq(~bus.sel[0]), sr.eq(Cat(z, self.bus.dat_w))]), # 4 edges to write data
             (2,        [rwds.o.eq(~bus.sel[1])]), # 4 edges to write data
             (2,        [rwds.o.eq(~bus.sel[2])]), # 4 edges to write data
             (2,        [rwds.o.eq(~bus.sel[3])]), # 4 edges to write data
