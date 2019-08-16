@@ -31,6 +31,45 @@ _io = [
         IOStandard("LVCMOS33")
     ),
 
+    ("eth_clocks", 0,
+        Subsignal("ref_clk", Pins("L4")),
+        IOStandard("LVCMOS33"),
+    ),
+
+    ("eth", 0,
+        Subsignal("rst_n", Pins("K6")),
+        Subsignal("rx_data", Pins("P4 L1")),
+        Subsignal("crs_dv", Pins("K4")),
+        Subsignal("tx_en", Pins("J4")),
+        Subsignal("tx_data", Pins("L3 K3")),
+        Subsignal("mdc", Pins("J6")),
+        Subsignal("mdio", Pins("L5")),
+        Subsignal("rx_er", Pins("M6")),
+#        Subsignal("int_n", Pins("")),
+        IOStandard("LVCMOS33")
+     ),
+
+
+#   ("eth_clocks", 0,
+#        Subsignal("tx", Pins("")),
+#        Subsignal("rx", Pins("")),
+#        IOStandard("LVCMOS33"),
+#    ),
+#    ("eth", 0,
+#        Subsignal("rst_n", Pins("K6")),
+#        Subsignal("mdio", Pins("L5")),
+#        Subsignal("mdc", Pins("J6")),
+#        Subsignal("rx_dv", Pins("")),
+#        Subsignal("rx_er", Pins("")),
+#        Subsignal("rx_data", Pins("")),
+#        Subsignal("tx_en", Pins("")),
+#        Subsignal("tx_data", Pins("")),
+#        Subsignal("col", Pins("")),
+#        Subsignal("crs", Pins("")),
+#        IOStandard("LVCMOS33"),
+#    ),
+
+
 
 #    ("spiflash4x", 0,
 #        Subsignal("cs_n", Pins("L13")),

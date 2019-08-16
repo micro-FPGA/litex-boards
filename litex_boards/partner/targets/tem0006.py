@@ -8,7 +8,7 @@ import argparse
 
 from migen import *
 
-from litex_boards.partner.platforms import smf2000
+from litex_boards.partner.platforms import tem0006
 
 from litex.soc.cores.clock import *
 from litex.soc.integration.soc_core import *
@@ -39,7 +39,7 @@ class _CRG(Module):
 class BaseSoC(SoCCore):
 
     def __init__(self, sys_clk_freq=int(12e6), **kwargs):
-        platform = smf2000.Platform()
+        platform = tem0006.Platform()
 
         SoCCore.__init__(self, platform, clk_freq=sys_clk_freq,
             integrated_rom_size=0x6000,
@@ -63,7 +63,7 @@ class BaseSoC(SoCCore):
 # Build --------------------------------------------------------------------------------------------
 
 def main():
-    parser = argparse.ArgumentParser(description="LiteX on SMF2000")
+    parser = argparse.ArgumentParser(description="LiteX on TEM0006")
     builder_args(parser)
 #    soc_sdram_args(parser)
     soc_core_args(parser)

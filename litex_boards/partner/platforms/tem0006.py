@@ -7,18 +7,19 @@ from litex.build.microsemi import MicrosemiPlatform
 
 # IOs ----------------------------------------------------------------------------------------------
 
+
 _io = [
-    ("clk12", 0, Pins("N16"), IOStandard("LVCMOS33")),
+    ("clk12", 0, Pins("A2"), IOStandard("LVCMOS33")),
 
 #    ("rst_n", 0, Pins("F5"), IOStandard("LVCMOS33")),
 
-    ("user_led", 0, Pins("G17"), IOStandard("LVCMOS33")),
+    ("user_led", 0, Pins("A3"), IOStandard("LVCMOS33")),
 
-    ("user_btn", 0, Pins("B19"), IOStandard("LVCMOS33")),
+    ("user_btn", 0, Pins("A6"), IOStandard("LVCMOS33")),
 
     ("serial", 0,
-        Subsignal("tx", Pins("J20")),
-        Subsignal("rx", Pins("K20")),
+        Subsignal("tx", Pins("A7")),
+        Subsignal("rx", Pins("A5")),
         IOStandard("LVCMOS33")
     ),
 
@@ -47,4 +48,4 @@ class Platform(MicrosemiPlatform):
     default_clk_period = 83.0
 
     def __init__(self):
-        MicrosemiPlatform.__init__(self, "M2S010-VF400-1", _io)
+        MicrosemiPlatform.__init__(self, "MPF100T-FCVG484-1", _io)

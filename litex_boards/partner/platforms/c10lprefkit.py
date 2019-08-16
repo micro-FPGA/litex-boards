@@ -85,7 +85,8 @@ _io = [
 #    ),
 
     # 25MHz ?
-    ("eth_ref_clk", 0, Pins("AA12"), IOStandard("3.3-V LVTTL")),
+#    ("eth_ref_clk", 0, Pins("AA12"), IOStandard("3.3-V LVTTL")),
+
     #ETH 1 in the middle of the PCB
     ("eth1_clocks", 0,
         Subsignal("tx", Pins("U21")),
