@@ -16,10 +16,16 @@ from litex.soc.cores.clock import *
 from litex.soc.integration.soc_core import *
 from litex.soc.integration.builder import *
 
-from hyper_memory import *
+from litex.soc.cores.hyperbus import HyperRAM
 
 from liteeth.phy.rmii import LiteEthPHYRMII
 from liteeth.mac import LiteEthMAC
+
+
+#from hyper_memory import *
+#self.submodules.hyperram = HyperRAM(platform.request("hyperram"))
+#self.add_wb_slave(mem_decoder(self.mem_map["hyperram"]), self.hyperram.bus)
+#self.add_memory_region("hyperram", self.mem_map["hyperram"], 8*1024*1024)
 
 
 # CRG ----------------------------------------------------------------------------------------------
@@ -71,13 +77,16 @@ class BaseSoC(SoCCore):
 #        self.comb += led_green.eq(counter[25])
 
 
-        hyperram_pads = platform.request("hyperram")
-        self.submodules.hyperram = HyperRAM(
-                hyperram_pads)
+#        hyperram_pads = platform.request("hyperram")
+#        self.submodules.hyperram = HyperRAM(hyperram_pads)
+#        self.add_wb_slave(mem_decoder(self.mem_map["hyperram"]), self.hyperram.bus)
+#        self.add_memory_region("hyperram", self.mem_map["hyperram"] | self.shadow_base, 8*1024*1024)
 
+        self.submodules.hyperram = HyperRAM(platform.request("hyperram"))
         self.add_wb_slave(mem_decoder(self.mem_map["hyperram"]), self.hyperram.bus)
-        self.add_memory_region(
-            "hyperram", self.mem_map["hyperram"] | self.shadow_base, 8*1024*1024)
+        self.add_memory_region("hyperram", self.mem_map["hyperram"], 8*1024*1024)
+
+
 
 class EthernetSoC(BaseSoC):
     mem_map = {

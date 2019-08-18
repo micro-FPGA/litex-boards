@@ -26,7 +26,7 @@ _io = [
         Subsignal("clk", Pins("D22")),
         Subsignal("rstn_n", Pins("B22")),
         Subsignal("dq", Pins("A21 D21 C20 A20 B20 A19 E21 E22")),
-        Subsignal("cs0_n", Pins("C22")),
+        Subsignal("cs_n", Pins("C22")),
         Subsignal("rwds", Pins("B21")),
         IOStandard("LVCMOS33")
     ),
