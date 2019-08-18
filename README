@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/micro-FPGA/litex-boards.svg?branch=master)](https://travis-ci.org/micro-FPGA/litex-boards)
+
            __   _ __      _  __    ___                   __
           / /  (_) /____ | |/_/___/ _ )___  ___ ________/ /__
          / /__/ / __/ -_)>  </___/ _  / _ \/ _ `/ __/ _  (_-<
