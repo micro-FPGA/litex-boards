@@ -37,7 +37,7 @@ class JTAG_atlantic(Module):
             i_r_dat   = self.tx_data,
             i_r_val   = self.tx_valid,
             o_r_ena   = self.tx_ready,
-            # transmit part of uart we recieve here
+            # transmit part of uart - our RX
             o_t_dat   = self.rx_data,
             i_t_dav   = self.rx_ready,
             o_t_ena   = self.rx_valid,
