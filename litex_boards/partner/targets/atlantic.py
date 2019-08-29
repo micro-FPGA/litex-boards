@@ -26,13 +26,43 @@ class JTAG_atlantic(Module):
         self.rx_pause = Signal()
         self.rx_data  = Signal(8)
 
+#    i_jtag_uart : component alt_jtag_atlantic
+#        generic map
+#        (
+#            INSTANCE_ID                 => 0,
+#            LOG2_RXFIFO_DEPTH           => LOG2_RXFIFO_DEPTH,
+#            LOG2_TXFIFO_DEPTH           => LOG2_TXFIFO_DEPTH,
+#            SLD_AUTO_INSTANCE_INDEX     => "YES"
+#        )
+#        port map
+#        (
+#            clk                         => clk,
+#            rst_n                       => reset_n,
+#
+#            -- alt_jtag_atlantic ports have _very_ strange (kind of backwards) names...
+#            
+#            -- this is the receiving part of alt_jtag_atlantic, the ports
+#            -- we actually *send* data to
+#            r_dat                       => tx_data,
+#            r_val                       => tx_start,
+#            r_ena                       => tx_idle,
+#
+#            -- this is the sending part of alt_jtag_atlantic, i.e. the ports
+#            -- we receive data from
+#            t_dat                       => rx_data,
+#            t_dav                       => rx_data_req,
+#            t_ena                       => rx_ready,
+#            t_pause                     => rx_paused
+#        );
+
+
         self.specials += Instance("alt_jtag_atlantic",
-            p_INSTANCE_ID             =  0,
+            #p_INSTANCE_ID             =  0, # should be 0, can not be "0"
             p_LOG2_RXFIFO_DEPTH       = "0", # should be 0, but not recognized by migen?
-            p_LOG2_TXFIFO_DEPTH       = "0", #
+            p_LOG2_TXFIFO_DEPTH       = "0", # "0" is OK, can not be left out
             p_SLD_AUTO_INSTANCE_INDEX = "YES",
             i_clk     = ClockSignal("sys"), 
-            i_rst_n   = self.rst_n,
+            i_rst_n   = ~ResetSignal("sys"), #self.rst_n,
             #
             i_r_dat   = self.tx_data,
             i_r_val   = self.tx_valid,
@@ -60,25 +90,55 @@ class UART_atlantic(Module, AutoCSR):
         self.ev.rx = EventSourceProcess()
         self.ev.finalize()
 
-        # # #
-        jtag = JTAG_atlantic()
-        self.submodules += jtag
+        #
+        self.submodules.jtag = JTAG_atlantic()
+        # latch jtag data
+        rx_data = Signal(8)
+        tx_data = Signal(8)
+        tx_valid = Signal()
+        tx_pending = Signal()
+        tx_busy = Signal()
+
+        self.sync += [
+            If(self.jtag.rx_valid,
+                rx_data.eq(self.jtag.rx_data)
+            ),
+            If(self._rxtx.re,
+                tx_data.eq(self._rxtx.r), # latch tx data
+                tx_pending.eq(1),         # 
+                tx_busy.eq(1),         # 
+            ),
+
+            If(tx_pending & self.jtag.tx_ready,
+                tx_valid.eq(1),           # 
+                tx_pending.eq(0)
+            ),
+
+            If(tx_valid & ~self.jtag.tx_ready,
+                tx_valid.eq(0),            # clear valid
+                tx_busy.eq(0),         # 
+            ),
+
+
+        ]
+
 
         # TX
         self.comb += [
-            jtag.tx_valid.eq(self._rxtx.re),
-            jtag.tx_data.eq(self._rxtx.r),
-            self._txfull.status.eq(~jtag.tx_ready),
+            self.jtag.tx_valid.eq(tx_valid),
+            self.jtag.tx_data.eq(tx_data),
+            self._txfull.status.eq(~self.jtag.tx_ready | tx_busy),
             # Generate TX IRQ when tx_fifo becomes non-full
-            self.ev.tx.trigger.eq(~jtag.tx_ready)
+            self.ev.tx.trigger.eq(~self.jtag.tx_ready | tx_busy)
         ]
 
         # RX
         self.comb += [
-            self._rxempty.status.eq(~jtag.rx_valid),
-            self._rxtx.w.eq(jtag.rx_data),
-            jtag.rx_ready.eq(self.ev.rx.clear),
+            self._rxempty.status.eq(~self.jtag.rx_valid),
+#            self._rxtx.w.eq(self.jtag.rx_data),
+            self._rxtx.w.eq(rx_data),
+            self.jtag.rx_ready.eq(self.ev.rx.clear),
             # Generate RX IRQ when rx_fifo becomes non-empty
-            self.ev.rx.trigger.eq(~jtag.rx_valid)
+            self.ev.rx.trigger.eq(~self.jtag.rx_valid)
         ]
 

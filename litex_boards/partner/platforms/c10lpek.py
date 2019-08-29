@@ -12,13 +12,17 @@ _io = [
     ("clk50", 0, Pins("E1"), IOStandard("3.3-V LVTTL")),
 
     ("user_led", 0, Pins("L14"), IOStandard("3.3-V LVTTL")),
-    ("user_led", 1, Pins("J14"), IOStandard("3.3-V LVTTL")),
-    ("user_led", 2, Pins("J13"), IOStandard("3.3-V LVTTL")),
+    ("user_led", 1, Pins("K15"), IOStandard("3.3-V LVTTL")),
+    ("user_led", 2, Pins("J14"), IOStandard("3.3-V LVTTL")),
+    ("user_led", 3, Pins("J13"), IOStandard("3.3-V LVTTL")),
 
-    ("cpu_reset", 0, Pins("E2"), IOStandard("3.3-V LVTTL")), # GND
+#    ("cpu_reset", 0, Pins("E2"), IOStandard("3.3-V LVTTL")), # GND
 
-    ("sw", 0, Pins("E15"), IOStandard("3.3-V LVTTL")),
-    ("sw", 1, Pins("F14"), IOStandard("3.3-V LVTTL")),
+    ("cpu_reset", 0, Pins("E15"), IOStandard("3.3-V LVTTL")), # PB0 low active !
+
+    ("sw", 0, Pins("M16"), IOStandard("3.3-V LVTTL")), # DIP 0
+    ("sw", 1, Pins("A8"), IOStandard("3.3-V LVTTL")),
+    ("sw", 2, Pins("A9"), IOStandard("3.3-V LVTTL")),
 
     # no usb serial on the EK board! 
     ("serial", 0,
