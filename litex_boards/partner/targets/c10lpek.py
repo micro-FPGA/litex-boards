@@ -21,10 +21,11 @@ from litex.soc.interconnect import wishbone
 
 from litex.soc.integration.builder import *
 
-
 from litex.soc.cores import gpio
 
 from hyper_memory import *
+
+from atlantic import *
 
 #class ClassicLed(gpio.GPIOOut):
 #    def __init__(self, pads):
@@ -38,7 +39,6 @@ class _CRG(Module):
         self.clock_domains.cd_por = ClockDomain(reset_less=True)
 
         # # #
-
         self.cd_sys.clk.attr.add("keep")
         self.cd_sys_ps.clk.attr.add("keep")
         self.cd_por.clk.attr.add("keep")
@@ -51,7 +51,7 @@ class _CRG(Module):
 
         # power on rst
         rst = Signal()
-        self.sync.por += rst.eq(platform.request("cpu_reset"))
+        self.sync.por += rst.eq(~platform.request("cpu_reset"))
         self.comb += [
             self.cd_por.clk.eq(clk50),
             self.cd_sys.rst.eq(rst),
@@ -125,12 +125,11 @@ class _CRG(Module):
 
 # BaseSoC ------------------------------------------------------------------------------------------
 
-class BaseSoC(SoCCore):
+class BaseSoC(SoCCore, AutoCSR):
     mem_map = {
         "hyperram": 0x20000000,
     }
     mem_map.update(SoCCore.mem_map)
-
 
     def __init__(self, sys_clk_freq=int(50e6), **kwargs):
         assert sys_clk_freq == int(50e6)
@@ -139,6 +138,7 @@ class BaseSoC(SoCCore):
 
         SoCSDRAM.__init__(self, platform, clk_freq=sys_clk_freq,
             integrated_rom_size=0x8000,
+            with_uart=False, 
 #            integrated_main_ram_size=0x4000,
             **kwargs)
  
@@ -147,24 +147,21 @@ class BaseSoC(SoCCore):
         self.add_csr("hyperram", allow_user_defined=True)
 
         hyperram_pads = platform.request("hyperram")
-        self.submodules.hyperram = HyperRAM(
-                hyperram_pads)
+        self.submodules.hyperram = HyperRAM(hyperram_pads)
 
         self.add_wb_slave(mem_decoder(self.mem_map["hyperram"]), self.hyperram.bus)
         self.add_memory_region(
             "hyperram", self.mem_map["hyperram"] | self.shadow_base, 8*1024*1024)
 
 
-#        self.submodules.leds = ClassicLed(Cat(platform.request("user_led", i) for i in range(7)))
-#        self.add_csr("leds", allow_user_defined=True)
-#        self.submodules.leds = ClassicLed(platform.request("user_led", 0))
+        #
+        # insert JTAG uart always if with_uart=False ?
+        # 
+        if not self.with_uart:
+            self.submodules.uart = UART_atlantic(platform)
+            self.add_csr("uart", allow_user_defined=True)
+            self.add_interrupt("uart", allow_user_defined=True)
 
-#        self.add_csr("gpio_leds", allow_user_defined=True)
-
-##        self.add_csr("gpio_leds", allow_user_defined=True)
-##        self.submodules.gpio_leds = gpio.GPIOOut(platform.request("gpio_leds"))
-
-# use micron device as winbond and ISSI not available
 
         self.counter = counter = Signal(32)
         self.sync += counter.eq(counter + 1)
@@ -172,11 +169,16 @@ class BaseSoC(SoCCore):
         led0 = platform.request("user_led", 0)
         self.comb += led0.eq(counter[23])
 
-        led1 = platform.request("user_led", 1)
-        self.comb += led1.eq(1)
+#        led1 = platform.request("user_led", 1)
+#        self.comb += led1.eq(1)
 
-        led2 = platform.request("user_led", 2)
-        self.comb += led1.eq(0)
+#        led2 = platform.request("user_led", 2)
+#        self.comb += led2.eq(0)
+
+#        led3 = platform.request("user_led", 3)
+#        self.comb += led3.eq(1)
+
+
 
 
 class EthernetSoC(BaseSoC):
