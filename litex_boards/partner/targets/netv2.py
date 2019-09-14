@@ -7,13 +7,13 @@ import argparse
 
 from migen import *
 
-from litex_boards.partner.platforms import netv2
+from litex_boards.platforms import netv2
 
 from litex.soc.cores.clock import *
 from litex.soc.integration.soc_sdram import *
 from litex.soc.integration.builder import *
 
-from litedram.modules import MT41J128M16
+from litedram.modules import K4B2G1646F
 from litedram.phy import s7ddrphy
 
 from liteeth.phy.rmii import LiteEthPHYRMII
@@ -27,6 +27,7 @@ class _CRG(Module):
         self.clock_domains.cd_sys4x = ClockDomain(reset_less=True)
         self.clock_domains.cd_sys4x_dqs = ClockDomain(reset_less=True)
         self.clock_domains.cd_clk200 = ClockDomain()
+        self.clock_domains.cd_clk100 = ClockDomain()
         self.clock_domains.cd_eth = ClockDomain()
 
         # # #
@@ -41,6 +42,7 @@ class _CRG(Module):
         pll.create_clkout(self.cd_sys4x, 4*sys_clk_freq)
         pll.create_clkout(self.cd_sys4x_dqs, 4*sys_clk_freq, phase=90)
         pll.create_clkout(self.cd_clk200, 200e6)
+        pll.create_clkout(self.cd_clk100, 100e6)
         pll.create_clkout(self.cd_eth, 50e6)
 
         self.submodules.idelayctrl = S7IDELAYCTRL(self.cd_clk200)
@@ -60,7 +62,7 @@ class BaseSoC(SoCSDRAM):
         # sdram
         self.submodules.ddrphy = s7ddrphy.A7DDRPHY(platform.request("ddram"), sys_clk_freq=sys_clk_freq)
         self.add_csr("ddrphy")
-        sdram_module = MT41J128M16(sys_clk_freq, "1:4")
+        sdram_module = K4B2G1646F(sys_clk_freq, "1:4")
         self.register_sdram(self.ddrphy,
                             sdram_module.geom_settings,
                             sdram_module.timing_settings)
