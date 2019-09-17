@@ -77,8 +77,9 @@ class mfioBasic(mfioCommon):
         oebit   = Signal(1)
         wren    = Signal(1)
 
-        self.comb += outbit.eq( bus.dat_w[0] )
-        self.comb += oebit.eq ( bus.dat_w[1] )
+        # PINAPI 1.0 compatible: 0 = drive 0, 1 drive 1, 3 = HiZ
+        self.comb += outbit.eq(  bus.dat_w[0] )
+        self.comb += oebit.eq ( ~bus.dat_w[1] )
 
         # write enable
         self.comb += wren.eq(self.bus.stb & self.bus.cyc & self.bus.we) 

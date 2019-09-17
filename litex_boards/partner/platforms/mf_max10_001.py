@@ -44,13 +44,13 @@ _variants = [
 class Platform(AlteraPlatform):
     default_clk_name = "sys_clk"
     default_clk_period = 1e9/116e6
-
  
 
     def __init__(self, id = 0):
         _device, _io = _variants[id]
         
         AlteraPlatform.__init__(self, _device, _io)
+
         self.add_platform_command("set_global_assignment -name FAMILY \"MAX 10\"")
         self.add_platform_command("set_global_assignment -name ENABLE_CONFIGURATION_PINS OFF")
         self.add_platform_command("set_global_assignment -name INTERNAL_FLASH_UPDATE_MODE \"SINGLE IMAGE WITH ERAM\"")
