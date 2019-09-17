@@ -63,9 +63,9 @@ class BaseSoC(SoCCore):
 #        self.platform.add_period_constraint("sys_clk", 1e9/116.5e6)
 
         SoCCore.__init__(self, platform, clk_freq=sys_clk_freq,
-            ident="MicroFPGA,MAX10,001,16,8",
-            integrated_rom_size      = 0x4000,
-            integrated_main_ram_size = 0x2000,
+            ident="MicroFPGA,MAX10,001,{},{}".format(platform.rom_size, platform.ram_size),
+            integrated_rom_size      = platform.rom_size * 1024,
+            integrated_main_ram_size = platform.ram_size * 1024,
             with_uart=False, 
             uart_name="jtag_atlantic",
             **kwargs)
