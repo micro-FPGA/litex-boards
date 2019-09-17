@@ -18,7 +18,9 @@ _io_10CL055 = [
 _io_10CL025_U256 = [
     ("user_led", 0, Pins("M6"), 
          IOStandard("3.3-V LVTTL")),
-    ("mfio", 0, Pins("A1 A2"), 
+    ("mfio", 0, Pins(
+       "B1", "C2", "C1", "F3", "D2", "D1", "F4", "G2", "G1", "H1", "H2", "H5", "H4", "H3"
+    ), 
          IOStandard("3.3-V LVTTL"))
 ]
 
