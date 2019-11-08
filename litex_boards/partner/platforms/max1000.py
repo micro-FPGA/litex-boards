@@ -20,6 +20,22 @@ _io = [
         Subsignal("rx", Pins("A4"), IOStandard("3.3-V LVTTL"))
     ),
 
+    ("spiflash4x", 0,
+        Subsignal("cs_n", Pins("B3")),
+        Subsignal("clk", Pins("A3")),
+        Subsignal("dq", Pins("A2", "B2", "B9", "C4")),
+        IOStandard("3.3-V LVTTL")
+    ),
+    ("spiflash", 0,
+        Subsignal("cs_n", Pins("B3")),
+        Subsignal("clk", Pins("A3")),
+        Subsignal("mosi", Pins("A2")),
+        Subsignal("miso", Pins("B2")),
+        Subsignal("wp", Pins("B9")),
+        Subsignal("hold", Pins("C4")),
+        IOStandard("3.3-V LVTTL"),
+    ),
+
     ("sdram_clock", 0, Pins("M9"), IOStandard("3.3-V LVTTL")),
     ("sdram", 0,
         Subsignal("a", Pins("K6 M5 N5 J8 N10 M11 N9 L10 M13 N8 N4 M10")), #0, 1, ...
