@@ -95,10 +95,10 @@ class BaseSoC(SoCSDRAM):
     )
 #    csr_map.update(SoCCore.csr_map, csr_peripherals)
 
-    def __init__(self, sys_clk_freq=int(50e6), **kwargs):
+    def __init__(self, device, sys_clk_freq=int(50e6), **kwargs):
         assert sys_clk_freq == int(50e6)
 
-        platform = max1000.Platform()
+        platform = max1000.Platform(device)
 
 #        SoCSDRAM.__init__(self, platform, clk_freq=sys_clk_freq,
 #                          integrated_rom_size=0x8000,
@@ -138,17 +138,21 @@ class BaseSoC(SoCSDRAM):
 def main():
     parser = argparse.ArgumentParser(description="LiteX SoC on MAX1000")
     builder_args(parser)
+    parser.add_argument("device", choices=['8', '16'], help='Cyclone device: "8" for 10M08SAU169C8G or "16" for 10M16SAU169C8G')
 
     soc_sdram_args(parser)
 #    soc_core_args(parser)
 
     args = parser.parse_args()
 
-    soc = BaseSoC(**soc_sdram_argdict(args))
+    if args.device == '16':
+        device = '10M16SAU169C8G'
+    else:
+        device = '10M08SAU169C8G'
+    soc = BaseSoC(device, **soc_sdram_argdict(args))
 
 #    cls = BaseSoC
 #    soc = cls(**soc_core_argdict(args))
-
 
     builder = Builder(soc, **builder_argdict(args))
     builder.build()
