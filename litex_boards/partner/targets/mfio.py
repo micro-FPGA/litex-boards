@@ -1,4 +1,4 @@
-# This file is Copyright (c) 2019 Antti Lukats <antti.lukats@gmail.com>
+# This file is Copyright (c) 2019 (year 0 AG) Antti Lukats <antti.lukats@gmail.com>
 # This file is Copyright (c) 2016-2019 Florent Kermarrec <florent@enjoy-digital.fr>
 
 # License: BSD
@@ -33,7 +33,7 @@ class mfioBasic(mfioCommon):
         MFIO simple core for LiteX
         TODO expose seladr, input mux out, and write enable, and value to external IP cores     
         This would "connect" the last access MFIO pin to external time multipexed IP's
-        
+        TODO can we update the .h files from here?         
         """
         mfioCommon.__init__(self, pads)
 
@@ -56,7 +56,8 @@ class mfioBasic(mfioCommon):
 
         # todo: dynamic address width calc to optimize the decode logic
         addr_width = 12
-        # 1024 IO max
+        # 1024 IO max?
+        # expose sel address to external IP Cores
         seladr  = Signal(10)
 
         # 10 bits of address = 1024 pins max
@@ -76,6 +77,7 @@ class mfioBasic(mfioCommon):
         ]	
 
         # process output 
+        # todo. multiplex them to external IP core use
         outbit  = Signal(1)
         oebit   = Signal(1)
         wren    = Signal(1)
