@@ -19,6 +19,7 @@ from litedram.modules import MT48LC4M16
 from litedram.phy import GENSDRPHY
 
 from litex.soc.cores import gpio
+from litex.soc.cores.spi_flash import SpiFlash
 
 
 class ClassicLed(gpio.GPIOOut):
@@ -112,6 +113,28 @@ class BaseSoC(SoCSDRAM):
 #            integrated_main_ram_size=0x4000,
             **kwargs)
  
+        self.mem_map['spiflash'] = 0x20000000
+        spiflash_pads = platform.request('spiflash')
+        self.add_memory_region(
+            "spiflash", self.mem_map["spiflash"], 8*1024*1024)
+
+        self.submodules.spiflash = SpiFlash(
+                spiflash_pads,
+                dummy=8,
+                div=4,
+                endianness=self.cpu.endianness)
+        self.add_csr("spiflash")
+
+        #self.spiflash.add_clk_primitive("xc7");	
+
+        # 8 MB flash: W74M64FVSSIQ
+        self.add_constant("SPIFLASH_PAGE_SIZE", 256)
+        self.add_constant("SPIFLASH_SECTOR_SIZE", 4096)
+        self.add_constant("FLASH_BOOT_ADDRESS", self.mem_map['spiflash'])
+
+        # spi_flash.py supports max 16MB linear space
+        self.add_wb_slave(mem_decoder(self.mem_map["spiflash"]), self.spiflash.bus)
+
 
         self.submodules.crg = _CRG(platform)
  
