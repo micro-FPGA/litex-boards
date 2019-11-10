@@ -24,18 +24,18 @@ class mfioSinglePin(Module):
         ]
 
 class mfioCommon(Module):
-    def __init__(self, pads):
+    def __init__(self, pads, exclude):
         self.pads = pads
 
 class mfioBasic(mfioCommon):
-    def __init__(self, pads):
+    def __init__(self, pads, exclude):
         """
         MFIO simple core for LiteX
         TODO expose seladr, input mux out, and write enable, and value to external IP cores     
         This would "connect" the last access MFIO pin to external time multipexed IP's
         TODO can we update the .h files from here?         
         """
-        mfioCommon.__init__(self, pads)
+        mfioCommon.__init__(self, pads, exclude)
 
         mfio_width = len(pads)
         #
