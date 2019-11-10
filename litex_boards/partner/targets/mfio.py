@@ -31,6 +31,8 @@ class mfioBasic(mfioCommon):
     def __init__(self, pads):
         """
         MFIO simple core for LiteX
+        TODO expose seladr, input mux out, and write enable, and value to external IP cores     
+        This would "connect" the last access MFIO pin to external time multipexed IP's
         
         """
         mfioCommon.__init__(self, pads)
@@ -51,13 +53,14 @@ class mfioBasic(mfioCommon):
         sel     = Signal(mfio_width)
         inbit   = Signal(1)
 
+
         # todo: dynamic address width calc to optimize the decode logic
         addr_width = 12
         # 1024 IO max
         seladr  = Signal(10)
 
         # 10 bits of address = 1024 pins max
-        self.comb += seladr.eq(self.bus.adr[:10]) 
+#        self.comb += seladr.eq(self.bus.adr[:10]) 
       
         # address decoder
         for b in range(mfio_width):
@@ -82,14 +85,16 @@ class mfioBasic(mfioCommon):
         self.comb += oebit.eq ( ~bus.dat_w[1] )
 
         # write enable
-        self.comb += wren.eq(self.bus.stb & self.bus.cyc & self.bus.we) 
+##        self.comb += wren.eq(self.bus.stb & self.bus.cyc & self.bus.we) 
 
         for b in range(mfio_width):
             self.sync += If(wren & sel[b], mfio_o[b].eq(outbit), mfio_oe[b].eq(oebit) )
 
+        # todo optimize 1 cycle away?
         seq = [
-            (1,        [bus.ack.eq(1)]), #
-            (1,        [bus.ack.eq(0)]), #
+            (1,        [bus.ack.eq(0), seladr.eq(self.bus.adr[:10]), wren.eq(self.bus.we)]), # latch IO address and wren bit
+            (1,        [bus.ack.eq(1), wren.eq(0)]), # ack transfer, clear wren, KEEP select address!
+            (1,        [bus.ack.eq(0)]), # done
             (0,        []),
         ]
  
