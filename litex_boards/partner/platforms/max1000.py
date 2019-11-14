@@ -58,7 +58,7 @@ _io = [
 
     # all IO not connected to peripherals mapped to MFIO
     #                 <-        LEDS           -> <-         PMOD      -> <-                     D0..D14, D11R, D12R                  -> <-     AIN0..AIN7    -> JE [C O  I  S  i1 i2]sw
-    ("mfio", 0, Pins("A8 A9 A11 A10 B10 C9 C10 D8 M3 L3 M2 M1 N3 N2 K2 K1 H8 K10 H5 H4 J1 J2 L12 J12 J13 K11 K12 J10 H10 H13 G12 B11 G13 E1 C2 C1 D1 E3 F1 E4 B1 E5 J6 J7 K5 L5 J5 L4 E6"),
+    ("bbio", 0, Pins("A8 A9 A11 A10 B10 C9 C10 D8 M3 L3 M2 M1 N3 N2 K2 K1 H8 K10 H5 H4 J1 J2 L12 J12 J13 K11 K12 J10 H10 H13 G12 B11 G13 E1 C2 C1 D1 E3 F1 E4 B1 E5 J6 J7 K5 L5 J5 L4 E6"),
         IOStandard("3.3-V LVTTL")),
 
 

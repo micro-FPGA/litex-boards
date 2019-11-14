@@ -18,12 +18,14 @@ from litex.soc.integration.builder import *
 from litedram.modules import MT48LC4M16
 from litedram.phy import GENSDRPHY
 
-from litex.soc.cores import gpio
+#from litex.soc.cores import gpio
+from litex.soc.cores.spi_flash import SpiFlash
 
+from bbio import *
 
-class ClassicLed(gpio.GPIOOut):
-    def __init__(self, pads):
-        gpio.GPIOOut.__init__(self, pads)
+#class ClassicLed(gpio.GPIOOut):
+#    def __init__(self, pads):
+#        gpio.GPIOOut.__init__(self, pads)
 
 # CRG ----------------------------------------------------------------------------------------------
 class _CRG(Module):
@@ -58,7 +60,6 @@ class _CRG(Module):
         #
         # PLL we need 2 clocks one system one for SDRAM phase shifter
         # 
-
         self.specials += \
             Instance("ALTPLL",
                 p_BANDWIDTH_TYPE="AUTO",
@@ -95,28 +96,52 @@ class BaseSoC(SoCSDRAM):
 #    )
 #    csr_map.update(SoCCore.csr_map, csr_peripherals)
 
+    mem_map = {
+#        "rom":      0x00000000,
+#        "sram":     0x10000000,
+#        "main_ram": 0xc0000000,
+        "bbio":     0x60000000,
+#        "csr" :     0xf0000000
+    }
+    mem_map.update(SoCCore.mem_map)
+
+
     def __init__(self, sys_clk_freq=int(50e6), **kwargs):
         assert sys_clk_freq == int(50e6)
 
         platform = cyc1000.Platform()
 
-
         SoCSDRAM.__init__(self, platform, clk_freq=sys_clk_freq,
             integrated_rom_size=0x8000,
-#            integrated_main_ram_size=0x4000,
             **kwargs)
- 
 
         self.submodules.crg = _CRG(platform)
+
+        self.mem_map['spiflash'] = 0x20000000
+        spiflash_pads = platform.request('spiflash')
+        self.add_memory_region(
+            "spiflash", self.mem_map["spiflash"], 2*1024*1024)
+
+        self.submodules.spiflash = SpiFlash(
+                spiflash_pads,
+                dummy=8,
+                div=4,
+                endianness=self.cpu.endianness)
+        self.add_csr("spiflash")
+
+        # 2 MB flash: W74M64FVSSIQ
+        self.add_constant("SPIFLASH_PAGE_SIZE", 256)
+        self.add_constant("SPIFLASH_SECTOR_SIZE", 4096)
+        self.add_constant("FLASH_BOOT_ADDRESS", self.mem_map['spiflash'])
+
+        # spi_flash.py supports max 16MB linear space
+        self.add_wb_slave(mem_decoder(self.mem_map["spiflash"]), self.spiflash.bus)
+
+
+
  
-#        self.submodules.leds = ClassicLed(Cat(platform.request("user_led", i) for i in range(7)))
-#        self.add_csr("leds", allow_user_defined=True)
-#        self.submodules.leds = ClassicLed(platform.request("user_led", 0))
-
-
-        self.add_csr("gpio_leds", allow_user_defined=True)
-        self.submodules.gpio_leds = gpio.GPIOOut(platform.request("gpio_leds"))
-
+#        self.add_csr("gpio_leds", allow_user_defined=True)
+#        self.submodules.gpio_leds = gpio.GPIOOut(platform.request("gpio_leds"))
 
 # use micron device as winbond and ISSI not available
 
@@ -127,6 +152,16 @@ class BaseSoC(SoCSDRAM):
                                 sdram_module.geom_settings,
                                 sdram_module.timing_settings)
 
+# include all unused pins as generic BBIO basic IP core
+
+        bbio_pads = platform.request("bbio")
+        # we can exclue any number of I/O pins to be included
+        self.submodules.bbio = bbioBasic(bbio_pads, exclude=None)
+        self.add_wb_slave(mem_decoder(self.mem_map["bbio"]), self.bbio.bus)
+        self.add_memory_region("bbio", self.mem_map["bbio"], 4*4*1024)
+
+
+
 # Build --------------------------------------------------------------------------------------------
 
 def main():
@@ -136,7 +171,6 @@ def main():
     args = parser.parse_args()
 
     soc = BaseSoC(**soc_sdram_argdict(args))
-
 
     builder = Builder(soc, **builder_argdict(args))
     builder.build()

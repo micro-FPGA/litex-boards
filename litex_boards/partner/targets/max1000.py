@@ -18,10 +18,10 @@ from litex.soc.integration.builder import *
 from litedram.modules import MT48LC4M16
 from litedram.phy import GENSDRPHY
 
-from litex.soc.cores import gpio
+#from litex.soc.cores import gpio
 from litex.soc.cores.spi_flash import SpiFlash
 
-from mfio import *
+from bbio import *
 
 class ClassicLed(gpio.GPIOOut):
     def __init__(self, pads):
@@ -100,7 +100,7 @@ class BaseSoC(SoCSDRAM):
 #        "rom":      0x00000000,
 #        "sram":     0x10000000,
 #        "main_ram": 0xc0000000,
-        "mfio":     0x60000000,
+        "bbio":     0x60000000,
 #        "csr" :     0xf0000000
     }
     mem_map.update(SoCCore.mem_map)
@@ -154,13 +154,13 @@ class BaseSoC(SoCSDRAM):
                                 sdram_module.geom_settings,
                                 sdram_module.timing_settings)
  
-# include all unused pins as generic MFIO basic IP core
+# include all unused pins as generic BBIO basic IP core
 
-        mfio_pads = platform.request("mfio")
+        bbio_pads = platform.request("bbio")
         # we can exclue any number of I/O pins to be included
-        self.submodules.mfio = mfioBasic(mfio_pads, exclude=None)
-        self.add_wb_slave(mem_decoder(self.mem_map["mfio"]), self.mfio.bus)
-        self.add_memory_region("mfio", self.mem_map["mfio"], 4*4*1024)
+        self.submodules.bbio = bbioBasic(bbio_pads, exclude=None)
+        self.add_wb_slave(mem_decoder(self.mem_map["bbio"]), self.bbio.bus)
+        self.add_memory_region("bbio", self.mem_map["bbio"], 4*4*1024)
 
 # Build --------------------------------------------------------------------------------------------
 
