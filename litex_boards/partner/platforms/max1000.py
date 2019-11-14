@@ -50,30 +50,17 @@ _io = [
         IOStandard("3.3-V LVTTL")
     ),
 
-#    ("epcs", 0,
-#        Subsignal("data0", Pins("H2")),
-#        Subsignal("dclk", Pins("A3")),
-#        Subsignal("ncs0", Pins("B3")),
-#        Subsignal("asd0", Pins("C1")),
-#        IOStandard("3.3-V LVTTL")
-#    ),
-
-#    ("i2c", 0,
-#        Subsignal("sclk", Pins("F2")),
-#        Subsignal("sdat", Pins("F1")),
-#        IOStandard("3.3-V LVTTL")
-#    ),
-
-#    ("g_sensor", 0,
-#        Subsignal("cs_n", Pins("G5")),
-#        Subsignal("int", Pins("M2")),
-#        IOStandard("3.3-V LVTTL")
-#    ),
 
     ("gpio_leds", 0,
-        Pins("D8 A8 A9 C9 A10 B10 A11 C10"),
+        Pins("A8 A9 A11 A10 B10 C9 C10 D8"),
         IOStandard("3.3-V LVTTL")
     ),
+
+    # all IO not connected to peripherals mapped to MFIO
+    #                 <-        LEDS           -> <-         PMOD      -> <-                     D0..D14, D11R, D12R                  -> <-     AIN0..AIN7    -> JE [C O  I  S  i1 i2]sw
+    ("mfio", 0, Pins("A8 A9 A11 A10 B10 C9 C10 D8 M3 L3 M2 M1 N3 N2 K2 K1 H8 K10 H5 H4 J1 J2 L12 J12 J13 K11 K12 J10 H10 H13 G12 B11 G13 E1 C2 C1 D1 E3 F1 E4 B1 E5 J6 J7 K5 L5 J5 L4 E6"),
+        IOStandard("3.3-V LVTTL")),
+
 
 ]
 

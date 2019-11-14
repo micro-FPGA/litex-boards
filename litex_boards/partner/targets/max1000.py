@@ -21,6 +21,7 @@ from litedram.phy import GENSDRPHY
 from litex.soc.cores import gpio
 from litex.soc.cores.spi_flash import SpiFlash
 
+from mfio import *
 
 class ClassicLed(gpio.GPIOOut):
     def __init__(self, pads):
@@ -59,7 +60,6 @@ class _CRG(Module):
         #
         # PLL we need 2 clocks one system one for SDRAM phase shifter
         # 
-
         self.specials += \
             Instance("ALTPLL",
                 p_BANDWIDTH_TYPE="AUTO",
@@ -90,11 +90,20 @@ class _CRG(Module):
 # BaseSoC ------------------------------------------------------------------------------------------
 
 class BaseSoC(SoCSDRAM):
-#class BaseSoC(SoCCore):
+
     csr_peripherals = (
         "leds",
     )
 #    csr_map.update(SoCCore.csr_map, csr_peripherals)
+
+    mem_map = {
+#        "rom":      0x00000000,
+#        "sram":     0x10000000,
+#        "main_ram": 0xc0000000,
+        "mfio":     0x60000000,
+#        "csr" :     0xf0000000
+    }
+    mem_map.update(SoCCore.mem_map)
 
     def __init__(self, device, sys_clk_freq=int(50e6), **kwargs):
         assert sys_clk_freq == int(50e6)
@@ -103,7 +112,6 @@ class BaseSoC(SoCSDRAM):
 
         SoCSDRAM.__init__(self, platform, clk_freq=sys_clk_freq,
             integrated_rom_size=0x6000,
-#            integrated_main_ram_size=0x4000,
             **kwargs)
  
         self.mem_map['spiflash'] = 0x20000000
@@ -118,8 +126,6 @@ class BaseSoC(SoCSDRAM):
                 endianness=self.cpu.endianness)
         self.add_csr("spiflash")
 
-        #self.spiflash.add_clk_primitive("xc7");	
-
         # 8 MB flash: W74M64FVSSIQ
         self.add_constant("SPIFLASH_PAGE_SIZE", 256)
         self.add_constant("SPIFLASH_SECTOR_SIZE", 4096)
@@ -128,16 +134,15 @@ class BaseSoC(SoCSDRAM):
         # spi_flash.py supports max 16MB linear space
         self.add_wb_slave(mem_decoder(self.mem_map["spiflash"]), self.spiflash.bus)
 
-
         self.submodules.crg = _CRG(platform)
  
 #        self.submodules.leds = ClassicLed(Cat(platform.request("user_led", i) for i in range(7)))
         self.add_csr("leds", allow_user_defined=True)
         self.submodules.leds = ClassicLed(platform.request("user_led", 0))
 
+# 
 #        self.add_csr("gpio_leds", allow_user_defined=True)
-        self.add_csr("gpio_leds", allow_user_defined=True)
-        self.submodules.gpio_leds = gpio.GPIOOut(platform.request("gpio_leds"))
+#        self.submodules.gpio_leds = gpio.GPIOOut(platform.request("gpio_leds"))
 
 
 # use micron device as winbond and ISSI not available
@@ -148,6 +153,14 @@ class BaseSoC(SoCSDRAM):
             self.register_sdram(self.sdrphy,
                                 sdram_module.geom_settings,
                                 sdram_module.timing_settings)
+ 
+# include all unused pins as generic MFIO basic IP core
+
+        mfio_pads = platform.request("mfio")
+        # we can exclue any number of I/O pins to be included
+        self.submodules.mfio = mfioBasic(mfio_pads, exclude=None)
+        self.add_wb_slave(mem_decoder(self.mem_map["mfio"]), self.mfio.bus)
+        self.add_memory_region("mfio", self.mem_map["mfio"], 4*4*1024)
 
 # Build --------------------------------------------------------------------------------------------
 
