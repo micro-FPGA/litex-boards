@@ -46,10 +46,10 @@ class _CRG(Module):
 # BaseSoC ------------------------------------------------------------------------------------------
 
 class BaseSoC(SoCSDRAM):
-    def __init__(self, sys_clk_freq=int(125e6), **kwargs):
+    def __init__(self, sys_clk_freq=int(125e6), integrated_rom_size=0x8000, **kwargs):
         platform = kc705.Platform()
         SoCSDRAM.__init__(self, platform, clk_freq=sys_clk_freq,
-                         integrated_rom_size=0x8000,
+                         integrated_rom_size=integrated_rom_size,
                          integrated_sram_size=0x8000,
                           **kwargs)
 
@@ -67,12 +67,12 @@ class BaseSoC(SoCSDRAM):
 
 class EthernetSoC(BaseSoC):
     mem_map = {
-        "ethmac": 0x30000000,  # (shadow @0xb0000000)
+        "ethmac": 0xb0000000,
     }
     mem_map.update(BaseSoC.mem_map)
 
     def __init__(self, **kwargs):
-        BaseSoC.__init__(self, **kwargs)
+        BaseSoC.__init__(self, integrated_rom_size=0x10000, **kwargs)
 
         self.submodules.ethphy = LiteEthPHY(self.platform.request("eth_clocks"),
                                             self.platform.request("eth"), clk_freq=self.clk_freq)
@@ -80,7 +80,7 @@ class EthernetSoC(BaseSoC):
         self.submodules.ethmac = LiteEthMAC(phy=self.ethphy, dw=32,
             interface="wishbone", endianness=self.cpu.endianness)
         self.add_wb_slave(self.mem_map["ethmac"], self.ethmac.bus, 0x2000)
-        self.add_memory_region("ethmac", self.mem_map["ethmac"] | self.shadow_base, 0x2000)
+        self.add_memory_region("ethmac", self.mem_map["ethmac"], 0x2000, type="io")
         self.add_csr("ethmac")
         self.add_interrupt("ethmac")
 
