@@ -1,6 +1,8 @@
-# This file is Copyright (c) 2019 Antti Lukats <antti.lukats@gmail.com>
+# This file is Copyright (c) 2019 (year 0 AG) Antti Lukats <antti.lukats@gmail.com>
 # This file is Copyright (c) 2014-2019 Florent Kermarrec <florent@enjoy-digital.fr>
 # License: BSD
+
+# info about the board http://trenz.org/cyc1000-info
 
 from litex.build.generic_platform import *
 from litex.build.altera import AlteraPlatform

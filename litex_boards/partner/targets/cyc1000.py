@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
-# This file is Copyright (c) 2019 Antti Lukats <antti.lukats@gmail.com>
-# This file is Copyright (c) 2019 msloniewski <marcin.sloniewski@gmail.com>
+# This file is Copyright (c) 2019 (year 0 AG) Antti Lukats <antti.lukats@gmail.com>
+# This file is Copyright (c) 2014-2019 Florent Kermarrec <florent@enjoy-digital.fr>
 # License: BSD
 
 import argparse

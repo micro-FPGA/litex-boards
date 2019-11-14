@@ -17,11 +17,7 @@ class bbioSinglePin(Module):
         self.pads = pads
         io = TSTriple(1)
         self.specials.io = io.get_tristate(pads[pin])
-        self.comb += [
-            i.eq(io.i),
-            io.o.eq(o),
-            io.oe.eq(oe)     
-        ]
+        self.comb += [i.eq(io.i), io.o.eq(o), io.oe.eq(oe)]
 
 class bbioCommon(Module):
     def __init__(self, pads, exclude):
@@ -86,8 +82,8 @@ class bbioBasic(bbioCommon):
         self.comb += outbit.eq(  bus.dat_w[0] )
         self.comb += oebit.eq ( ~bus.dat_w[1] )
 
-        # write enable
-##        self.comb += wren.eq(self.bus.stb & self.bus.cyc & self.bus.we) 
+        # write enables
+#        self.comb += wren.eq(self.bus.stb & self.bus.cyc & self.bus.we) 
 
         for b in range(bbio_width):
             self.sync += If(wren & sel[b], bbio_o[b].eq(outbit), bbio_oe[b].eq(oebit) )
