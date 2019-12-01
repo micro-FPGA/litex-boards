@@ -72,6 +72,15 @@ _io = [
         IOStandard("3.3-V LVTTL")
     ),
 
+    ("vga", 0,
+        Subsignal("red",   Pins("R3", "V2", "W2", "Y2")),
+        Subsignal("green", Pins("Y1", "W1", "V1", "U2")),
+        Subsignal("blue",  Pins("U1", "R2", "R1", "P2")),
+        Subsignal("hsync", Pins("P1")),
+        Subsignal("vsync", Pins("P3")),
+        IOStandard("3.3-V LVTTL"),
+    ),
+
     ("eth_clocks", 0,
         Subsignal("tx", Pins("U21")),
         Subsignal("rx", Pins("V22")),

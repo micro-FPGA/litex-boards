@@ -23,11 +23,14 @@ from liteeth.mac import LiteEthMAC
 
 from litex.soc.cores.hyperbus import HyperRAM
 
+from terminal import Terminal
+
 # CRG ----------------------------------------------------------------------------------------------
 class _CRG(Module):
     def __init__(self, platform):
         self.clock_domains.cd_sys = ClockDomain()
         self.clock_domains.cd_sys_ps = ClockDomain()
+        self.clock_domains.cd_vga = ClockDomain()
         self.clock_domains.cd_por = ClockDomain(reset_less=True)
 
         # # #
@@ -60,6 +63,10 @@ class _CRG(Module):
                 p_CLK1_DUTY_CYCLE=50,
                 p_CLK1_MULTIPLY_BY=25,
                 p_CLK1_PHASE_SHIFT="-10000",
+                p_CLK2_DIVIDE_BY=12,
+                p_CLK2_DUTY_CYCLE=50,
+                p_CLK2_MULTIPLY_BY=25, 
+                p_CLK2_PHASE_SHIFT="0",
                 p_COMPENSATE_CLOCK="CLK0",
                 p_INCLK0_INPUT_FREQUENCY=83000,
                 p_INTENDED_DEVICE_FAMILY="MAX 10",
@@ -77,6 +84,9 @@ class _CRG(Module):
         self.comb += self.cd_sys.clk.eq(clk_outs[0])
         self.comb += self.cd_sys_ps.clk.eq(clk_outs[1])
         self.comb += platform.request("sdram_clock").eq(self.cd_sys_ps.clk)
+
+        # 25 MHz for 640x480. VESA standard is 25.175 MHz, but allows 0.5% deviation, close enough.
+        self.comb += self.cd_vga.clk.eq(clk_outs[2]) # C2
 
 # BaseSoC ------------------------------------------------------------------------------------------
 
@@ -107,10 +117,27 @@ class BaseSoC(SoCSDRAM):
                                 sdram_module.geom_settings,
                                 sdram_module.timing_settings)
 
+        # create VGA terminal
+        self.mem_map['terminal'] = 0x50000000
+        self.submodules.terminal = terminal = Terminal(self.crg.cd_vga.clk)
+        self.add_wb_slave(mem_decoder(self.mem_map["terminal"]), self.terminal.bus)
+        self.add_memory_region("terminal", self.mem_map["terminal"], 0x10000)
+
+        # connect VGA pins
+        vga = platform.request('vga', 0)
+        self.comb += [
+            vga.vsync.eq (terminal.vga_vsync),
+            vga.hsync.eq (terminal.vga_hsync),
+            vga.red.eq   (terminal.red[4:8]),
+            vga.green.eq (terminal.green[4:8]),
+            vga.blue.eq  (terminal.blue[4:8])
+        ]
+
+
 
 class EthernetSoC(BaseSoC):
     mem_map = {
-        "ethmac": 0xb0000000,
+        "ethmac": 0x30000000,  # (shadow @0xb0000000)
     }
     mem_map.update(BaseSoC.mem_map)
 
@@ -123,7 +150,7 @@ class EthernetSoC(BaseSoC):
         self.submodules.ethmac = LiteEthMAC(phy=self.ethphy, dw=32,
             interface="wishbone", endianness=self.cpu.endianness)
         self.add_wb_slave(self.mem_map["ethmac"], self.ethmac.bus, 0x2000)
-        self.add_memory_region("ethmac", self.mem_map["ethmac"], 0x2000, type="io")
+        self.add_memory_region("ethmac", self.mem_map["ethmac"] | self.shadow_base, 0x2000)
         self.add_csr("ethmac")
         self.add_interrupt("ethmac")
 
