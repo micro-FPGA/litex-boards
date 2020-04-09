@@ -22,8 +22,9 @@ from litedram.phy import GENSDRPHY
 
 #from litex.soc.cores import gpio
 from litex.soc.cores.spi_flash import SpiFlash
+from litex.soc.cores.hyperbus import HyperRAM
 
-from bbio import *
+#from bbio import *
 
 #class ClassicLed(gpio.GPIOOut):
 #    def __init__(self, pads):
@@ -116,9 +117,16 @@ class BaseSoC(SoCSDRAM):
             integrated_rom_size=0x6000,
 #            integrated_main_ram_size=0x1000,
             **kwargs)
+
+        self.mem_map['hyperram'] = 0x30000000
+
+        self.submodules.hyperram = HyperRAM(platform.request("hyperram"))
+        self.add_wb_slave(mem_decoder(self.mem_map["hyperram"]), self.hyperram.bus)
+        self.add_memory_region("hyperram", self.mem_map["hyperram"], 8*1024*1024)
+
  
         self.mem_map['spiflash'] = 0x20000000
-        spiflash_pads = platform.request('spiflash')
+        spiflash_pads = platform.request('spiflash', 1)
         self.add_memory_region(
             "spiflash", self.mem_map["spiflash"], 8*1024*1024)
 

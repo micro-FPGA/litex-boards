@@ -22,6 +22,7 @@ _io = [
         Subsignal("rx", Pins("J1"), IOStandard("3.3-V LVTTL"))
     ),
 
+# main on-board SPI flash is only usable in X1 mode
     ("spiflash", 0,
         Subsignal("cs_n", Pins("A5")),
         Subsignal("clk",  Pins("B4")),
@@ -29,6 +30,40 @@ _io = [
         Subsignal("miso", Pins("A2")),
         IOStandard("3.3-V LVTTL"),
     ),
+
+# CRUVI LS module connnected SPI Flash
+# tested with ISSI 8Mbyte Flash
+    ("spiflash", 1,
+        Subsignal("cs_n", Pins("M3")),
+        Subsignal("clk",  Pins("M2")),
+        Subsignal("mosi", Pins("K2")),
+        Subsignal("miso", Pins("L2")),
+        Subsignal("wp",   Pins("K1")),
+        Subsignal("hold", Pins("J2")),
+        IOStandard("3.3-V LVTTL"),
+    ),
+
+# CRUVI LS 4x mode not tested
+    ("spiflash4x", 0,
+        Subsignal("cs_n", Pins("M3")),
+        Subsignal("clk",  Pins("M2")),
+        Subsignal("dq",   Pins("K2", "L2", "K1", "J2")),
+        IOStandard("3.3-V LVTTL")
+    ),
+
+# CRUVI HS
+    ("hyperram", 0,
+        Subsignal("clk", Pins("M12")),
+        Subsignal("rst_n", Pins("N11")),
+        Subsignal("dq", Pins("M5 M4 K8 J8 N8 N7 M7 N6")),
+        Subsignal("cs_n", Pins("N5")), # CS1
+        Subsignal("rwds", Pins("K5")),
+        IOStandard("3.3-V LVTTL")
+    ),
+
+
+
+
 # 8MByte SDRAM as default
     ("sdram_clock", 0, Pins("L3"), IOStandard("3.3-V LVTTL")),
     ("sdram", 0,               # 0   1   2   3   4   5   6   7   8   9  10  11  12
